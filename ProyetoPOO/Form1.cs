@@ -15,6 +15,8 @@ namespace ProyetoPOO
         public Form1()
         {
             InitializeComponent();
+
+            //test
         }
     }
 }
