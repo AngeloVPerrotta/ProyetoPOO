@@ -15,9 +15,6 @@ namespace ProyetoPOO
         public Form1()
         {
             InitializeComponent();
-
-            //test
-            MessageBox.Show("Hola");
         }
     }
 }
