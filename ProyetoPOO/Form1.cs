@@ -17,6 +17,7 @@ namespace ProyetoPOO
             InitializeComponent();
 
             //test
+            MessageBox.Show("Hola");
         }
     }
 }
