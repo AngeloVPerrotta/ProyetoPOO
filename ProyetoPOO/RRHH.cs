@@ -6,7 +6,20 @@ using System.Threading.Tasks;
 
 namespace ProyetoPOO
 {
-    internal class RRHH
+    public class RRHH : Persona
     {
+        public string Departamento { get; set; }
+        public bool PermisoGestionEmpleados { get; set; }
+
+        public RRHH(int id, string nombre, string apellidos, string datosContacto,
+                    string departamento, bool permisoGestionEmpleados)
+            : base(id, nombre, apellidos, datosContacto)
+        {
+            Departamento = departamento;
+            PermisoGestionEmpleados = permisoGestionEmpleados;
+        }
+    
+        //falta crear metodos
+
     }
 }
