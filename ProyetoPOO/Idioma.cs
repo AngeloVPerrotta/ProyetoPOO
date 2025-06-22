@@ -6,7 +6,18 @@ using System.Threading.Tasks;
 
 namespace ProyetoPOO
 {
-    internal class Idioma
+    public class Idioma
     {
+        public string Nombre { get; set; }  // Ejemplo: "Español", "Inglés"
+        private Dictionary<string, string> Textos { get; set; }
+
+        // Constructor
+        public Idioma(string nombre)
+        {
+            Nombre = nombre;
+            Textos = new Dictionary<string, string>();
+        }
+
+        //faltan metodos 
     }
 }

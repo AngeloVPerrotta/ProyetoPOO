@@ -8,5 +8,6 @@ namespace ProyetoPOO
 {
     internal class RRHHDinamico
     {
+        //Métodos: simulación de procesos de RRHH (alta/baja empleados).
     }
 }

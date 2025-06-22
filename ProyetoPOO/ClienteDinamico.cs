@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace ProyetoPOO
 {
-    internal class ClienteDinamico
+    public class ClienteDinamico
     {
+        //Métodos: operaciones específicas que simulen interacción de cliente.
     }
 }
