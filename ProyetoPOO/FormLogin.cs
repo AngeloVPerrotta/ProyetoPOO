@@ -24,7 +24,7 @@ namespace UI
         private void buttonIniciarSesion_Click(object sender, EventArgs e)
         {
 
-            string rutaCSV = "usuario.csv"; // puede ser ruta completa si está en otro lugar
+            string rutaCSV = "usuario.csv"; 
 
             if (!File.Exists(rutaCSV))
             {
@@ -35,7 +35,7 @@ namespace UI
             string user = txt_usuario.Text.Trim();
             string pass = txt_contraseña.Text.Trim();
 
-            var lineas = File.ReadAllLines(rutaCSV).Skip(1); // Salta la cabecera
+            var lineas = File.ReadAllLines(rutaCSV).Skip(1); 
 
             foreach (var linea in lineas)
             {
