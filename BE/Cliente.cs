@@ -11,7 +11,7 @@ namespace ProyetoPOO
         public string DocumentoIdentidad { get; set; }
         public string TipoCliente { get; set; } // Por ejemplo: "Mayorista", "Minorista", "Interno"
         public string Referencia { get; set; }  // AUX Para guardar datos adicionales
-
+        //queso
 
         public Cliente(int id, string nombre, string apellidos, string datosContacto,
                        string documentoIdentidad, string tipoCliente, string referencia)
