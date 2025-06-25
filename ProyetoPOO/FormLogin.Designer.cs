@@ -35,8 +35,8 @@
             this.buttonIniciarSesion = new System.Windows.Forms.Button();
             this.txt_contraseña = new System.Windows.Forms.TextBox();
             this.txt_usuario = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -84,7 +84,7 @@
             // 
             // buttonIniciarSesion
             // 
-            this.buttonIniciarSesion.Location = new System.Drawing.Point(133, 202);
+            this.buttonIniciarSesion.Location = new System.Drawing.Point(133, 211);
             this.buttonIniciarSesion.Name = "buttonIniciarSesion";
             this.buttonIniciarSesion.Size = new System.Drawing.Size(100, 23);
             this.buttonIniciarSesion.TabIndex = 4;
@@ -106,23 +106,23 @@
             this.txt_usuario.Size = new System.Drawing.Size(100, 20);
             this.txt_usuario.TabIndex = 2;
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(53, 161);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(80, 13);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Tipo de usuario";
-            // 
             // comboBox1
             // 
             this.comboBox1.Items.AddRange(new object[] {
             "usuario"});
-            this.comboBox1.Location = new System.Drawing.Point(133, 158);
+            this.comboBox1.Location = new System.Drawing.Point(133, 160);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 0;
+            this.comboBox1.TabIndex = 7;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(53, 163);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(80, 13);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Tipo de usuario";
             // 
             // FormLogin
             // 
@@ -147,7 +147,7 @@
         private System.Windows.Forms.TextBox txt_contraseña;
         private System.Windows.Forms.TextBox txt_usuario;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label4;
     }
 }

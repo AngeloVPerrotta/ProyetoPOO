@@ -7,26 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
 
 namespace UI
 {
-    public partial class FormLogin : Form
+    public partial class FormPedidos : Form
     {
-        public string Usuario { get; private set; }
-        public string Rol { get; internal set; }
-
-        public FormLogin()
+        public FormPedidos()
         {
             InitializeComponent();
-        }
-
-        private void buttonIniciarSesion_Click(object sender, EventArgs e)
-        {
-
-
-
-         
         }
     }
 }

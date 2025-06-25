@@ -11,6 +11,7 @@ namespace ProyetoPOO
         public decimal TipoInteres { get; set; } // Porcentaje anual, ej: 0.03 para 3%
         public List<string> Movimientos { get; set; }
 
+
         // Constructor
         public CajaAhorro(int idCuenta, decimal saldo, Persona titular, decimal tipoInteres)
             : base(idCuenta, saldo, titular)
