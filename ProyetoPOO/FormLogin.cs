@@ -21,10 +21,9 @@ namespace UI
             InitializeComponent();
         }
 
-        private void buttonIniciarSesion_Click(object sender, EventArgs e)
+        public void buttonIniciarSesion_Click(object sender, EventArgs e)
         {
-
-            string rutaCSV = "usuario.csv"; 
+            string rutaCSV = @"C:\Users\perro\Desktop\PROGRAMACION\ProyectoPOOTEST\DAL\usuario.csv";
 
             if (!File.Exists(rutaCSV))
             {
@@ -35,7 +34,7 @@ namespace UI
             string user = txt_usuario.Text.Trim();
             string pass = txt_contraseña.Text.Trim();
 
-            var lineas = File.ReadAllLines(rutaCSV).Skip(1); 
+            var lineas = File.ReadAllLines(rutaCSV).Skip(1);
 
             foreach (var linea in lineas)
             {
@@ -43,19 +42,32 @@ namespace UI
 
                 if (partes.Length == 3)
                 {
-                    string archivoUsuario = partes[0];
-                    string archivoContraseña = partes[1];
-                    string archivoRol = partes[2];
+                    string archivoUsuario = partes[0].Trim();
+                    string archivoContraseña = partes[1].Trim();
+                    string archivoRol = partes[2].Trim().ToLower();
 
                     if (user == archivoUsuario && pass == archivoContraseña)
                     {
                         Usuario = user;
                         Rol = archivoRol;
-                        DialogResult = DialogResult.OK;
+                        this.DialogResult = DialogResult.OK;
+                        this.Close();
                         return;
                     }
                 }
             }
+
+            MessageBox.Show("Usuario o contraseña incorrectos.");
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormLogin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

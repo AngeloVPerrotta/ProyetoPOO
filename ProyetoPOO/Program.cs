@@ -17,7 +17,21 @@ namespace ProyetoPOO
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormPrincipal());
+
+            FormLogin login = new FormLogin();
+
+            if (login.ShowDialog() == DialogResult.OK)
+            {
+                FormPrincipal principal = new FormPrincipal();
+                principal.RolUsuario = login.Rol;
+                principal.AplicarPermisos(login.Rol);
+                Application.Run(principal);
+            }
+            else
+            {
+                // Si no se loguea, cierra la app
+                Application.Exit();
+            }
         }
     }
 }
