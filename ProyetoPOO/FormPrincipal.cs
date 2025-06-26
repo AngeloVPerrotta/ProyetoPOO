@@ -19,6 +19,11 @@ namespace UI
 
         private void iniciarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void logInToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             FormLogin login = new FormLogin();
 
             if (login.ShowDialog() == DialogResult.OK)

@@ -44,36 +44,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
-    <Compile Include="FormLogin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormLogin.Designer.cs">
-      <DependentUpon>FormLogin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormPedidos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormPedidos.Designer.cs">
-      <DependentUpon>FormPedidos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormPrincipal.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormPrincipal.Designer.cs">
-      <DependentUpon>FormPrincipal.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormProductos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormProductos.Designer.cs">
-      <DependentUpon>FormProductos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormRRHH.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormRRHH.Designer.cs">
-      <DependentUpon>FormRRHH.cs</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -85,23 +55,6 @@
       <Project>{9585e135-6989-4bbb-be72-0870fab7b0c4}</Project>
       <Name>DAL</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="FormLogin.resx">
-      <DependentUpon>FormLogin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormPedidos.resx">
-      <DependentUpon>FormPedidos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormPrincipal.resx">
-      <DependentUpon>FormPrincipal.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormProductos.resx">
-      <DependentUpon>FormProductos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormRRHH.resx">
-      <DependentUpon>FormRRHH.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
