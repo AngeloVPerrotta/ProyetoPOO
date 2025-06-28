@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyetoPOO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -157,6 +158,34 @@ namespace UI
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
+        }
+
+        private void productosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormProductos productos = new FormProductos();
+            productos.MdiParent = this;
+            productos.Show();
+        }
+
+        private void pedidosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormPedidos pedidos = new FormPedidos();
+            pedidos.MdiParent = this;
+            pedidos.Show();
+        }
+
+        private void proveedoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormProveedores proveedores = new FormProveedores();
+            proveedores.MdiParent = this;
+            proveedores.Show();
+        }
+
+        private void empleadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormRRHH RRHH = new FormRRHH();
+            RRHH.MdiParent = this;
+            RRHH.Show();
         }
     }
 }

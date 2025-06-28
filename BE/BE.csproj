@@ -46,7 +46,6 @@
     <Compile Include="Cuenta.cs" />
     <Compile Include="CuentaCorriente.cs" />
     <Compile Include="Empleado.cs" />
-    <Compile Include="Idioma.cs" />
     <Compile Include="Pedido.cs" />
     <Compile Include="Persona.cs" />
     <Compile Include="Producto.cs" />
@@ -55,6 +54,9 @@
     <Compile Include="Recepcion.cs" />
     <Compile Include="RegistroNecesidad.cs" />
     <Compile Include="RRHH.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
