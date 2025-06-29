@@ -51,6 +51,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="mensajes.txt" />
     <Content Include="usuario.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

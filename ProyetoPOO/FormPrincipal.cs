@@ -79,14 +79,19 @@ namespace UI
         {
             
         }
-
-        private void logInToolStripMenuItem_Click(object sender, EventArgs e)
+        public string RolActual { get; set; }
+        public void logInToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormLogin login = new FormLogin();
 
             if (login.ShowDialog() == DialogResult.OK)
             {
                 RolUsuario = login.Rol;
+
+                FormMensajes form = new FormMensajes();
+                form.RolActual = RolActual;  // acá estás pasando el rol
+                form.Show();
+
                 AplicarPermisos(RolUsuario); // aplicar permisos
                 MessageBox.Show($"Rol: {RolUsuario}"); // solo para verificación
             }
@@ -186,6 +191,22 @@ namespace UI
             FormRRHH RRHH = new FormRRHH();
             RRHH.MdiParent = this;
             RRHH.Show();
+        }
+
+        private void mensajesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormMensajes mensajes = new FormMensajes();
+            mensajes.MdiParent = this;
+            mensajes.Show();
+        }
+
+        private void seguridadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void configuracionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

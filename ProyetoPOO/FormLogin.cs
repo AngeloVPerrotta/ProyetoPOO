@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using ProyetoPOO;
 
 namespace UI
 {
@@ -27,14 +28,17 @@ namespace UI
 
             if (!File.Exists(rutaCSV))
             {
-                MessageBox.Show("No se encontró el archivo de usuarios.");
+                MessageBox.Show("No se encontró el archivo de usuarios.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             string user = txt_usuario.Text.Trim();
             string pass = txt_contraseña.Text.Trim();
 
-            var lineas = File.ReadAllLines(rutaCSV).Skip(1);
+            // 🔐 Encriptar la contraseña ingresada por el usuario
+            string passEncriptada = Seguridad.EncriptarSHA256(pass);
+
+            var lineas = File.ReadAllLines(rutaCSV).Skip(1); // omitir encabezado si lo tiene
 
             foreach (var linea in lineas)
             {
@@ -43,10 +47,11 @@ namespace UI
                 if (partes.Length == 3)
                 {
                     string archivoUsuario = partes[0].Trim();
-                    string archivoContraseña = partes[1].Trim();
+                    string archivoContraseña = partes[1].Trim(); // ya debería estar encriptada
                     string archivoRol = partes[2].Trim().ToLower();
 
-                    if (user == archivoUsuario && pass == archivoContraseña)
+                    // 👇 Comparar usuario + contraseña encriptada
+                    if (user == archivoUsuario && passEncriptada == archivoContraseña)
                     {
                         Usuario = user;
                         Rol = archivoRol;
@@ -57,8 +62,11 @@ namespace UI
                 }
             }
 
-            MessageBox.Show("Usuario o contraseña incorrectos.");
+            // ❌ Login fallido
+            MessageBox.Show("Usuario o contraseña incorrectos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+
+
 
         private void label3_Click(object sender, EventArgs e)
         {
@@ -67,6 +75,14 @@ namespace UI
 
         private void FormLogin_Load(object sender, EventArgs e)
         {
+
+        }
+
+        public void button1_Click(object sender, EventArgs e)
+        {
+            string rutaOriginal = @"C:\Users\perro\Desktop\PROGRAMACION\ProyectoPOOTEST\DAL\usuario.csv";
+            string rutaEncriptada = @"C:\Users\perro\Desktop\PROGRAMACION\ProyectoPOOTEST\DAL\usuario_encriptado.csv";
+            EncriptadorUsuarios.EncriptarArchivoUsuarios(rutaOriginal, rutaEncriptada);
 
         }
     }

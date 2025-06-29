@@ -76,7 +76,7 @@
             this.buttonIniciarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonIniciarSesion.ForeColor = System.Drawing.SystemColors.WindowText;
             this.buttonIniciarSesion.Location = new System.Drawing.Point(364, 389);
-            this.buttonIniciarSesion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonIniciarSesion.Margin = new System.Windows.Forms.Padding(4);
             this.buttonIniciarSesion.Name = "buttonIniciarSesion";
             this.buttonIniciarSesion.Size = new System.Drawing.Size(316, 101);
             this.buttonIniciarSesion.TabIndex = 4;
@@ -88,7 +88,7 @@
             // 
             this.txt_contraseña.ForeColor = System.Drawing.SystemColors.WindowText;
             this.txt_contraseña.Location = new System.Drawing.Point(450, 267);
-            this.txt_contraseña.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_contraseña.Margin = new System.Windows.Forms.Padding(4);
             this.txt_contraseña.Name = "txt_contraseña";
             this.txt_contraseña.Size = new System.Drawing.Size(132, 22);
             this.txt_contraseña.TabIndex = 3;
@@ -96,7 +96,7 @@
             // txt_usuario
             // 
             this.txt_usuario.Location = new System.Drawing.Point(450, 164);
-            this.txt_usuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_usuario.Margin = new System.Windows.Forms.Padding(4);
             this.txt_usuario.Name = "txt_usuario";
             this.txt_usuario.Size = new System.Drawing.Size(132, 22);
             this.txt_usuario.TabIndex = 2;
@@ -113,7 +113,7 @@
             this.Controls.Add(this.txt_usuario);
             this.Controls.Add(this.txt_contraseña);
             this.Controls.Add(this.label2);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormLogin";
             this.Text = "Iniciar sesion";
             this.Load += new System.EventHandler(this.FormLogin_Load);

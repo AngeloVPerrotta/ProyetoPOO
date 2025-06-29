@@ -1,0 +1,2 @@
+RemitenteRol;DestinatarioRol;Fecha;Contenido
+Compras;RRHH;2025-06-29 13:00;Se necesita un nuevo proveedor para insumos eléctricos.
