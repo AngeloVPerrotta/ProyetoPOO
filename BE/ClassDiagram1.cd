@@ -1,84 +1,84 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="ProyetoPOO.CajaAhorro" Collapsed="true">
-    <Position X="0.5" Y="2.5" Width="1.5" />
+  <Class Name="ProyetoPOO.CajaAhorro">
+    <Position X="0.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>CajaAhorro.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ProyetoPOO.Cuenta" Collapsed="true">
+  <Class Name="ProyetoPOO.Cuenta">
     <Position X="2" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAEAAAABAAEAAAAAAAAAAAAAAEAAAAAYAAAAAAAA=</HashCode>
       <FileName>Cuenta.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ProyetoPOO.Cliente" Collapsed="true">
-    <Position X="7.75" Y="2.5" Width="1.5" />
+  <Class Name="ProyetoPOO.Cliente">
+    <Position X="7.75" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>CAAAAAAAAAAAQAAAAAAAAAAAAAAAAAQAAAAAAAAAAAA=</HashCode>
       <FileName>Cliente.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ProyetoPOO.Persona" Collapsed="true">
+  <Class Name="ProyetoPOO.Persona">
     <Position X="7.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAEAAAAgABAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Persona.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ProyetoPOO.Empleado" Collapsed="true">
-    <Position X="9.75" Y="2.5" Width="1.5" />
+  <Class Name="ProyetoPOO.Empleado">
+    <Position X="9.75" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAgAAAAAAAAgAAAAAAAAgAAAAAEAAAAEAA=</HashCode>
       <FileName>Empleado.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ProyetoPOO.CuentaCorriente" Collapsed="true">
-    <Position X="3.5" Y="2.5" Width="1.5" />
+  <Class Name="ProyetoPOO.CuentaCorriente">
+    <Position X="3.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ACAAAAAAAABAAAAAAAAAAAAAAAAAEAAAAAAAEAAAAAA=</HashCode>
       <FileName>CuentaCorriente.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProyetoPOO.Pedido" Collapsed="true">
-    <Position X="1" Y="4.5" Width="1.5" />
+    <Position X="0.75" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QAAAAAEAAAAAAAGAQAAAAAABAAAQAgAAAAAAAAAAAAg=</HashCode>
       <FileName>Pedido.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProyetoPOO.Producto" Collapsed="true">
-    <Position X="8" Y="4.5" Width="1.5" />
+    <Position X="7.75" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAQAAAAAQAAAAAAAAAAgAIAAAAAAAAAAAAAAQAAAAA=</HashCode>
       <FileName>Producto.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProyetoPOO.Proveedor" Collapsed="true">
-    <Position X="4.5" Y="4.5" Width="1.5" />
+    <Position X="4.25" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AQACAAAAAAAAgAAAAAAAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Proveedor.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProyetoPOO.Recepcion" Collapsed="true">
-    <Position X="6.25" Y="4.5" Width="1.5" />
+    <Position X="6" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAIAAAAAAAIAAAAAAAAAABAQAgAAAAAAAAAAAAA=</HashCode>
       <FileName>Recepcion.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProyetoPOO.RegistroNecesidad" Collapsed="true">
-    <Position X="2.75" Y="4.5" Width="1.5" />
+    <Position X="2.5" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAIAQAAAAAAAAAAAAAQAAAAAAAAAAAw=</HashCode>
       <FileName>RegistroNecesidad.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ProyetoPOO.RRHH" Collapsed="true">
-    <Position X="5.75" Y="2.5" Width="1.5" />
+  <Class Name="ProyetoPOO.RRHH">
+    <Position X="5.75" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
       <FileName>RRHH.cs</FileName>
