@@ -29,7 +29,7 @@ namespace ProyetoPOO
         {
             return $"{IdMensaje};{Remitente};{Destinatario};{Contenido};{Fecha};{Leido}";
         }
-
+        //random
         public static Mensaje DesdeLinea(string linea)
         {
             var partes = linea.Split(';');
