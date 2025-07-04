@@ -13,7 +13,7 @@ namespace ProyetoPOO
         public string Rubro { get; set; }
         public string DatosContacto { get; set; }
 
-        NodoListaProv Siguiente;
+        public NodoListaProv Siguiente;
 
         public NodoListaProv(int idProveedor, string nombre, string rubro, string datosContacto)
         {

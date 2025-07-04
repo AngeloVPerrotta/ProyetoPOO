@@ -31,6 +31,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridViewProv = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxContacto = new System.Windows.Forms.TextBox();
             this.buttonElimProv = new System.Windows.Forms.Button();
@@ -40,7 +41,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxRubro = new System.Windows.Forms.TextBox();
             this.textBoxProv = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProv)).BeginInit();
             this.panel2.SuspendLayout();
@@ -61,6 +61,7 @@
             this.dataGridViewProv.Name = "dataGridViewProv";
             this.dataGridViewProv.Size = new System.Drawing.Size(354, 338);
             this.dataGridViewProv.TabIndex = 0;
+            this.dataGridViewProv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewProv_CellContentClick);
             // 
             // panel2
             // 
@@ -80,6 +81,15 @@
             this.panel2.TabIndex = 1;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(35, 213);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(178, 23);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Mostrar proveedores";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -98,7 +108,7 @@
             // 
             // buttonElimProv
             // 
-            this.buttonElimProv.Location = new System.Drawing.Point(35, 183);
+            this.buttonElimProv.Location = new System.Drawing.Point(35, 184);
             this.buttonElimProv.Name = "buttonElimProv";
             this.buttonElimProv.Size = new System.Drawing.Size(178, 23);
             this.buttonElimProv.TabIndex = 6;
@@ -107,7 +117,7 @@
             // 
             // buttonAgregarProv
             // 
-            this.buttonAgregarProv.Location = new System.Drawing.Point(35, 145);
+            this.buttonAgregarProv.Location = new System.Drawing.Point(35, 155);
             this.buttonAgregarProv.Name = "buttonAgregarProv";
             this.buttonAgregarProv.Size = new System.Drawing.Size(178, 23);
             this.buttonAgregarProv.TabIndex = 5;
@@ -156,15 +166,6 @@
             this.textBoxProv.Name = "textBoxProv";
             this.textBoxProv.Size = new System.Drawing.Size(100, 20);
             this.textBoxProv.TabIndex = 0;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(35, 212);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(178, 23);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Mostrar proveedores";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // FormProveedores
             // 
