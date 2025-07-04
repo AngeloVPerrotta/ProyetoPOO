@@ -42,8 +42,8 @@
             this.txt_cantidad = new System.Windows.Forms.TextBox();
             this.txt_codproducto = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
             this.txt_proveedor = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -167,6 +167,13 @@
             this.panel1.Size = new System.Drawing.Size(392, 280);
             this.panel1.TabIndex = 12;
             // 
+            // txt_proveedor
+            // 
+            this.txt_proveedor.Location = new System.Drawing.Point(180, 60);
+            this.txt_proveedor.Name = "txt_proveedor";
+            this.txt_proveedor.Size = new System.Drawing.Size(100, 20);
+            this.txt_proveedor.TabIndex = 14;
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -176,13 +183,6 @@
             this.label7.TabIndex = 13;
             this.label7.Text = "Proveedor";
             // 
-            // txt_proveedor
-            // 
-            this.txt_proveedor.Location = new System.Drawing.Point(180, 60);
-            this.txt_proveedor.Name = "txt_proveedor";
-            this.txt_proveedor.Size = new System.Drawing.Size(100, 20);
-            this.txt_proveedor.TabIndex = 14;
-            // 
             // FormPedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -190,7 +190,7 @@
             this.ClientSize = new System.Drawing.Size(896, 450);
             this.Controls.Add(this.panel1);
             this.Name = "FormPedidos";
-            this.Text = "FormPedidos";
+            this.Text = "PEDIDOS";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

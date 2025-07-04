@@ -175,7 +175,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "FormProveedores";
-            this.Text = "FormProveedores";
+            this.Text = "PROVEEDORES";
             this.Load += new System.EventHandler(this.FormProveedores_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProv)).EndInit();

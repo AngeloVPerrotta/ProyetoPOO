@@ -83,6 +83,12 @@
     <Compile Include="FormProveedores.Designer.cs">
       <DependentUpon>FormProveedores.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormRecepciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRecepciones.Designer.cs">
+      <DependentUpon>FormRecepciones.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormRRHH.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +143,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <None Include="Proveedores.csv" />
+    <None Include="usuarios.csv" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

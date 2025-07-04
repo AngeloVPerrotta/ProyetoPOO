@@ -57,7 +57,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panel1);
             this.Name = "FormProductos";
-            this.Text = "FormProductos";
+            this.Text = "PRODUCTOS";
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProd)).EndInit();
             this.ResumeLayout(false);

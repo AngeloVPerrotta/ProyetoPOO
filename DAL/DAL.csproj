@@ -52,9 +52,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="mensajes.txt" />
-    <Content Include="usuario.csv">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -95,6 +95,7 @@ namespace UI
                 AplicarPermisos(RolUsuario); // aplicar permisos
                 MessageBox.Show($"Rol: {RolUsuario}"); // solo para verificación
             }
+            //a
         }
         public void AplicarPermisos(string rol)
         {
@@ -104,9 +105,8 @@ namespace UI
             proveedoresToolStripMenuItem.Visible = false;
             pedidosToolStripMenuItem.Visible = false;
             recepcionesToolStripMenuItem.Visible = false;
-            configuracionesToolStripMenuItem.Visible = false;
-            usuariosToolStripMenuItem.Visible = false;
-            auditoríaToolStripMenuItem.Visible = false;
+            recursosHumanosToolStripMenuItem.Visible = false;
+
 
             switch (rol.ToLower())
             {
@@ -116,14 +116,12 @@ namespace UI
                     proveedoresToolStripMenuItem.Visible = true;
                     pedidosToolStripMenuItem.Visible = true;
                     recepcionesToolStripMenuItem.Visible = true;
-                    configuracionesToolStripMenuItem.Visible = true;
-                    usuariosToolStripMenuItem.Visible = true;
-                    auditoríaToolStripMenuItem.Visible = true;
+                    recursosHumanosToolStripMenuItem.Visible = true;
                     break;
 
                 case "rrhh":
                     empleadosToolStripMenuItem.Visible = true;
-                    configuracionesToolStripMenuItem.Visible = true; // podría estar limitado dentro
+                    recursosHumanosToolStripMenuItem.Visible = true;
                     break;
 
                 case "usuario":
@@ -168,35 +166,35 @@ namespace UI
         private void productosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormProductos productos = new FormProductos();
-            productos.MdiParent = this;
+           
             productos.Show();
         }
 
         private void pedidosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormPedidos pedidos = new FormPedidos();
-            pedidos.MdiParent = this;
+            
             pedidos.Show();
         }
 
         private void proveedoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormProveedores proveedores = new FormProveedores();
-            proveedores.MdiParent = this;
+            
             proveedores.Show();
         }
 
         private void empleadosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormRRHH RRHH = new FormRRHH();
-            RRHH.MdiParent = this;
+            
             RRHH.Show();
         }
 
         private void mensajesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormMensajes mensajes = new FormMensajes();
-            mensajes.MdiParent = this;
+            
             mensajes.Show();
         }
 
@@ -207,6 +205,35 @@ namespace UI
         private void configuracionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormPrincipal_Load(object sender, EventArgs e)
+        {
+            label1.Text = $"Bienvenido al sistema de gestión de la empresa";
+            label3.Text = $"Rol actual: {RolUsuario}";
+
+        }
+
+        private void recepcionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormRecepciones recepciones = new FormRecepciones(); 
+            recepciones.Show();
+        }
+
+        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void recursosHumanosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormRRHH rrhh = new FormRRHH();
+            rrhh.Show();
         }
     }
 }

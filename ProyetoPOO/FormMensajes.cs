@@ -48,7 +48,7 @@ namespace ProyetoPOO
 
             if (string.IsNullOrEmpty(rolDestino) || string.IsNullOrEmpty(contenido))
             {
-                MessageBox.Show("Debe completar todos los campos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show("Debe completar todos los campos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
