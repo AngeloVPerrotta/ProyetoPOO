@@ -90,7 +90,9 @@
       <DependentUpon>FormRRHH.cs</DependentUpon>
     </Compile>
     <Compile Include="Idioma.cs" />
+    <Compile Include="ListaProveedores.cs" />
     <Compile Include="Mensajes.cs" />
+    <Compile Include="NodoListaProv.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RRHHDinamico.cs" />

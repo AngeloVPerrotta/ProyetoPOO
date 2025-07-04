@@ -26,5 +26,10 @@ namespace ProyetoPOO
         {
 
         }
+
+        private void FormProveedores_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
