@@ -22,10 +22,10 @@ namespace UI
             InitializeComponent();
         }
 
+
         public void buttonIniciarSesion_Click(object sender, EventArgs e)
         {
-            string rutaCSV = @"C:\Users\perro\Desktop\PROGRAMACION\ProyectoPOOTEST\DAL\usuario.csv";
-
+            string rutaCSV = "usuario.csv";          
             if (!File.Exists(rutaCSV))
             {
                 MessageBox.Show("No se encontró el archivo de usuarios.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -80,6 +80,7 @@ namespace UI
 
         public void button1_Click(object sender, EventArgs e)
         {
+            //No sirve
             string rutaOriginal = @"C:\Users\perro\Desktop\PROGRAMACION\ProyectoPOOTEST\DAL\usuario.csv";
             string rutaEncriptada = @"C:\Users\perro\Desktop\PROGRAMACION\ProyectoPOOTEST\DAL\usuario_encriptado.csv";
             EncriptadorUsuarios.EncriptarArchivoUsuarios(rutaOriginal, rutaEncriptada);

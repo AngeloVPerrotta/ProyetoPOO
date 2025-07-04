@@ -38,12 +38,12 @@
             this.dateTimePickerEntrega = new System.Windows.Forms.DateTimePicker();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.buttonGenerarpedido = new System.Windows.Forms.Button();
-            this.textBoxCosto = new System.Windows.Forms.TextBox();
-            this.textBoxCantidad = new System.Windows.Forms.TextBox();
-            this.textBoxCproducto = new System.Windows.Forms.TextBox();
+            this.txt_costo = new System.Windows.Forms.TextBox();
+            this.txt_cantidad = new System.Windows.Forms.TextBox();
+            this.txt_codproducto = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.comboBoxProveedores = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.txt_proveedor = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -123,36 +123,37 @@
             this.buttonGenerarpedido.TabIndex = 8;
             this.buttonGenerarpedido.Text = "Generar pedido";
             this.buttonGenerarpedido.UseVisualStyleBackColor = true;
+            this.buttonGenerarpedido.Click += new System.EventHandler(this.buttonGenerarpedido_Click);
             // 
-            // textBoxCosto
+            // txt_costo
             // 
-            this.textBoxCosto.Location = new System.Drawing.Point(180, 187);
-            this.textBoxCosto.Name = "textBoxCosto";
-            this.textBoxCosto.Size = new System.Drawing.Size(100, 20);
-            this.textBoxCosto.TabIndex = 9;
+            this.txt_costo.Location = new System.Drawing.Point(180, 187);
+            this.txt_costo.Name = "txt_costo";
+            this.txt_costo.Size = new System.Drawing.Size(100, 20);
+            this.txt_costo.TabIndex = 9;
             // 
-            // textBoxCantidad
+            // txt_cantidad
             // 
-            this.textBoxCantidad.Location = new System.Drawing.Point(180, 86);
-            this.textBoxCantidad.Name = "textBoxCantidad";
-            this.textBoxCantidad.Size = new System.Drawing.Size(100, 20);
-            this.textBoxCantidad.TabIndex = 10;
+            this.txt_cantidad.Location = new System.Drawing.Point(180, 86);
+            this.txt_cantidad.Name = "txt_cantidad";
+            this.txt_cantidad.Size = new System.Drawing.Size(100, 20);
+            this.txt_cantidad.TabIndex = 10;
             // 
-            // textBoxCproducto
+            // txt_codproducto
             // 
-            this.textBoxCproducto.Location = new System.Drawing.Point(180, 110);
-            this.textBoxCproducto.Name = "textBoxCproducto";
-            this.textBoxCproducto.Size = new System.Drawing.Size(100, 20);
-            this.textBoxCproducto.TabIndex = 11;
+            this.txt_codproducto.Location = new System.Drawing.Point(180, 110);
+            this.txt_codproducto.Name = "txt_codproducto";
+            this.txt_codproducto.Size = new System.Drawing.Size(100, 20);
+            this.txt_codproducto.TabIndex = 11;
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.txt_proveedor);
             this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.comboBoxProveedores);
-            this.panel1.Controls.Add(this.textBoxCosto);
-            this.panel1.Controls.Add(this.textBoxCproducto);
+            this.panel1.Controls.Add(this.txt_costo);
+            this.panel1.Controls.Add(this.txt_codproducto);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.textBoxCantidad);
+            this.panel1.Controls.Add(this.txt_cantidad);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.buttonGenerarpedido);
@@ -166,14 +167,6 @@
             this.panel1.Size = new System.Drawing.Size(392, 280);
             this.panel1.TabIndex = 12;
             // 
-            // comboBoxProveedores
-            // 
-            this.comboBoxProveedores.FormattingEnabled = true;
-            this.comboBoxProveedores.Location = new System.Drawing.Point(180, 59);
-            this.comboBoxProveedores.Name = "comboBoxProveedores";
-            this.comboBoxProveedores.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxProveedores.TabIndex = 12;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -183,11 +176,18 @@
             this.label7.TabIndex = 13;
             this.label7.Text = "Proveedor";
             // 
+            // txt_proveedor
+            // 
+            this.txt_proveedor.Location = new System.Drawing.Point(180, 60);
+            this.txt_proveedor.Name = "txt_proveedor";
+            this.txt_proveedor.Size = new System.Drawing.Size(100, 20);
+            this.txt_proveedor.TabIndex = 14;
+            // 
             // FormPedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(896, 450);
             this.Controls.Add(this.panel1);
             this.Name = "FormPedidos";
             this.Text = "FormPedidos";
@@ -209,11 +209,11 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerEntrega;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button buttonGenerarpedido;
-        private System.Windows.Forms.TextBox textBoxCosto;
-        private System.Windows.Forms.TextBox textBoxCantidad;
-        private System.Windows.Forms.TextBox textBoxCproducto;
+        private System.Windows.Forms.TextBox txt_costo;
+        private System.Windows.Forms.TextBox txt_cantidad;
+        private System.Windows.Forms.TextBox txt_codproducto;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBoxProveedores;
+        private System.Windows.Forms.TextBox txt_proveedor;
     }
 }
