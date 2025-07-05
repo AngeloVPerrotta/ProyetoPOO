@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.empleadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.proveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pedidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.recepcionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mensajesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.recursosHumanosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,7 +44,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.recursosHumanosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,7 +51,6 @@
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.empleadosToolStripMenuItem,
             this.productosToolStripMenuItem,
             this.proveedoresToolStripMenuItem,
             this.pedidosToolStripMenuItem,
@@ -67,13 +65,6 @@
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
-            // 
-            // empleadosToolStripMenuItem
-            // 
-            this.empleadosToolStripMenuItem.Name = "empleadosToolStripMenuItem";
-            this.empleadosToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
-            this.empleadosToolStripMenuItem.Text = "Empleados";
-            this.empleadosToolStripMenuItem.Click += new System.EventHandler(this.empleadosToolStripMenuItem_Click);
             // 
             // productosToolStripMenuItem
             // 
@@ -109,6 +100,13 @@
             this.mensajesToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
             this.mensajesToolStripMenuItem.Text = "Mensajes";
             this.mensajesToolStripMenuItem.Click += new System.EventHandler(this.mensajesToolStripMenuItem_Click);
+            // 
+            // recursosHumanosToolStripMenuItem
+            // 
+            this.recursosHumanosToolStripMenuItem.Name = "recursosHumanosToolStripMenuItem";
+            this.recursosHumanosToolStripMenuItem.Size = new System.Drawing.Size(121, 20);
+            this.recursosHumanosToolStripMenuItem.Text = "Recursos Humanos";
+            this.recursosHumanosToolStripMenuItem.Click += new System.EventHandler(this.recursosHumanosToolStripMenuItem_Click);
             // 
             // salirToolStripMenuItem
             // 
@@ -206,13 +204,6 @@
             this.label8.TabIndex = 12;
             this.label8.Text = "Franco Hourcade";
             // 
-            // recursosHumanosToolStripMenuItem
-            // 
-            this.recursosHumanosToolStripMenuItem.Name = "recursosHumanosToolStripMenuItem";
-            this.recursosHumanosToolStripMenuItem.Size = new System.Drawing.Size(121, 20);
-            this.recursosHumanosToolStripMenuItem.Text = "Recursos Humanos";
-            this.recursosHumanosToolStripMenuItem.Click += new System.EventHandler(this.recursosHumanosToolStripMenuItem_Click);
-            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -242,7 +233,6 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem empleadosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem productosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem proveedoresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pedidosToolStripMenuItem;

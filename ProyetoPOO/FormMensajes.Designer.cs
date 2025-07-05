@@ -35,7 +35,11 @@
             this.txtMensaje = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbDestinatarioRol = new System.Windows.Forms.ComboBox();
+            this.dgvMensajes = new System.Windows.Forms.DataGridView();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMensajes)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -47,10 +51,10 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.cmbDestinatarioRol);
             this.groupBox1.Location = new System.Drawing.Point(21, 10);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox1.Size = new System.Drawing.Size(547, 336);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Size = new System.Drawing.Size(547, 208);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Envia un mensaje";
@@ -67,13 +71,14 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(28, 301);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Location = new System.Drawing.Point(21, 162);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(488, 19);
+            this.button1.Size = new System.Drawing.Size(488, 22);
             this.button1.TabIndex = 4;
             this.button1.Text = "Enviar mensaje";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label2
             // 
@@ -88,9 +93,9 @@
             // txtMensaje
             // 
             this.txtMensaje.Location = new System.Drawing.Point(40, 95);
-            this.txtMensaje.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtMensaje.Margin = new System.Windows.Forms.Padding(2);
             this.txtMensaje.Name = "txtMensaje";
-            this.txtMensaje.Size = new System.Drawing.Size(440, 185);
+            this.txtMensaje.Size = new System.Drawing.Size(440, 63);
             this.txtMensaje.TabIndex = 2;
             this.txtMensaje.Text = "";
             // 
@@ -108,23 +113,47 @@
             // 
             this.cmbDestinatarioRol.FormattingEnabled = true;
             this.cmbDestinatarioRol.Location = new System.Drawing.Point(226, 50);
-            this.cmbDestinatarioRol.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbDestinatarioRol.Margin = new System.Windows.Forms.Padding(2);
             this.cmbDestinatarioRol.Name = "cmbDestinatarioRol";
             this.cmbDestinatarioRol.Size = new System.Drawing.Size(92, 21);
             this.cmbDestinatarioRol.TabIndex = 0;
+            // 
+            // dgvMensajes
+            // 
+            this.dgvMensajes.AllowUserToAddRows = false;
+            this.dgvMensajes.AllowUserToDeleteRows = false;
+            this.dgvMensajes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvMensajes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMensajes.Location = new System.Drawing.Point(21, 38);
+            this.dgvMensajes.Name = "dgvMensajes";
+            this.dgvMensajes.Size = new System.Drawing.Size(513, 244);
+            this.dgvMensajes.TabIndex = 1;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.dgvMensajes);
+            this.groupBox2.Location = new System.Drawing.Point(21, 243);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(557, 308);
+            this.groupBox2.TabIndex = 2;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Tu casilla";
             // 
             // FormMensajes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 366);
+            this.ClientSize = new System.Drawing.Size(647, 575);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormMensajes";
             this.Text = "MENSAJES";
             this.Load += new System.EventHandler(this.FormMensajes_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMensajes)).EndInit();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -138,6 +167,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.RichTextBox txtMensaje;
         private System.Windows.Forms.Label lblRemitente;
+        private System.Windows.Forms.DataGridView dgvMensajes;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }
 

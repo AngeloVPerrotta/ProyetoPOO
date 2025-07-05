@@ -18,7 +18,7 @@ namespace ProyetoPOO
         public FormMensajes()
         {
             InitializeComponent();
-            string rutaUsuarios = "usuarios.txt";
+            string rutaUsuarios = "usuario_encriptado.csv";
             HashSet<string> roles = new HashSet<string>();
 
             if (File.Exists(rutaUsuarios))
@@ -39,38 +39,80 @@ namespace ProyetoPOO
                 }
             }
         }
-        
+
+        private void CargarMensajesRecibidos()
+        {
+            string rutaMensajes = "mensajes.txt";
+
+            dgvMensajes.Columns.Clear();
+            dgvMensajes.Rows.Clear();
+
+            dgvMensajes.Columns.Add("De", "Remitente");
+            dgvMensajes.Columns.Add("Fecha", "Fecha");
+            dgvMensajes.Columns.Add("Mensaje", "Mensaje");
+
+            if (!File.Exists(rutaMensajes))
+                return;
+
+            var mensajes = File.ReadAllLines(rutaMensajes)
+                .Select(l => l.Split(';'))
+                .Where(p => p.Length == 4 && p[0].Equals(RolActual, StringComparison.OrdinalIgnoreCase))
+                .Select(p => new
+                {
+                    De = p[1],
+                    Fecha = p[2],
+                    Mensaje = p[3]
+                });
+
+            foreach (var m in mensajes)
+            {
+                dgvMensajes.Rows.Add(m.De, m.Fecha, m.Mensaje);
+            }
+        }
+
+
         public void FormMensajes_Load(object sender, EventArgs e)
         {
-            lblRemitente.Text = "USUARIO ACTUAL: " + RolActual;
+            CargarMensajesRecibidos();
+
+            dgvMensajes.DefaultCellStyle.Font = new Font("Segoe UI", 10);
+            dgvMensajes.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+
+
+            lblRemitente.Text = $"ROL ACTUAL: {RolActual}";
             string rolDestino = cmbDestinatarioRol.Text.Trim();
             string contenido = txtMensaje.Text.Trim();
 
-            if (string.IsNullOrEmpty(rolDestino) || string.IsNullOrEmpty(contenido))
-            {
-                //MessageBox.Show("Debe completar todos los campos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            string rutaUsuarios = "usuario_encriptado.csv";
+            HashSet<string> roles = new HashSet<string>();
 
-            if (rolDestino == RolActual)
+            if (File.Exists(rutaUsuarios))
             {
-                MessageBox.Show("No puede enviarse un mensaje a su propio rol.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+                foreach (var linea in File.ReadAllLines(rutaUsuarios))
+                {
+                    var partes = linea.Split(',');
+                    if (partes.Length == 3)
+                    {
+                        string rol = partes[2].Trim();
+                        if (!rol.Equals(RolActual, StringComparison.OrdinalIgnoreCase))
+                        {
+                            roles.Add(rol);  // solo otros roles
+                        }
+                    }
+                }
 
-            string rutaMensajes = "mensajes.txt";
-            string fecha = DateTime.Now.ToString("yyyy-MM-dd HH:mm");
-            string linea = $"{rolDestino};{RolActual};{fecha};{contenido}";
+                cmbDestinatarioRol.Items.Clear();
+                foreach (var rol in roles)
+                {
+                    cmbDestinatarioRol.Items.Add(rol);
+                }
 
-            try
-            {
-                File.AppendAllText(rutaMensajes, linea + Environment.NewLine);
-                MessageBox.Show("Mensaje enviado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtMensaje.Clear();
+                if (cmbDestinatarioRol.Items.Count > 0)
+                    cmbDestinatarioRol.SelectedIndex = 0;
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Error al guardar el mensaje: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No se encontró el archivo de usuarios.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         public void VerMensajes()
@@ -100,5 +142,37 @@ namespace ProyetoPOO
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string rolDestino = cmbDestinatarioRol.Text.Trim();
+            string contenido = txtMensaje.Text.Trim();
+
+            if (string.IsNullOrEmpty(rolDestino) || string.IsNullOrEmpty(contenido))
+            {
+                MessageBox.Show("Debe completar todos los campos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (rolDestino == RolActual)
+            {
+                MessageBox.Show("No puede enviarse un mensaje a su propio rol.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string rutaMensajes = "mensajes.txt";
+            string fecha = DateTime.Now.ToString("yyyy-MM-dd HH:mm");
+            string linea = $"{rolDestino};{RolActual};{fecha};{contenido}";
+
+            try
+            {
+                File.AppendAllText(rutaMensajes, linea + Environment.NewLine);
+                MessageBox.Show("Mensaje enviado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtMensaje.Clear();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al guardar el mensaje: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

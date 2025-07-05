@@ -80,27 +80,11 @@ namespace UI
             
         }
         public string RolActual { get; set; }
-        public void logInToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormLogin login = new FormLogin();
-
-            if (login.ShowDialog() == DialogResult.OK)
-            {
-                RolUsuario = login.Rol;
-
-                FormMensajes form = new FormMensajes();
-                form.RolActual = RolActual;  // acá estás pasando el rol
-                form.Show();
-
-                AplicarPermisos(RolUsuario); // aplicar permisos
-                MessageBox.Show($"Rol: {RolUsuario}"); // solo para verificación
-            }
-            //a
-        }
+        
         public void AplicarPermisos(string rol)
         {
             // Primero, ocultar todo por defecto
-            empleadosToolStripMenuItem.Visible = false;
+          
             productosToolStripMenuItem.Visible = false;
             proveedoresToolStripMenuItem.Visible = false;
             pedidosToolStripMenuItem.Visible = false;
@@ -111,7 +95,7 @@ namespace UI
             switch (rol.ToLower())
             {
                 case "administrador":
-                    empleadosToolStripMenuItem.Visible = true;
+                    
                     productosToolStripMenuItem.Visible = true;
                     proveedoresToolStripMenuItem.Visible = true;
                     pedidosToolStripMenuItem.Visible = true;
@@ -120,7 +104,7 @@ namespace UI
                     break;
 
                 case "rrhh":
-                    empleadosToolStripMenuItem.Visible = true;
+                    
                     recursosHumanosToolStripMenuItem.Visible = true;
                     break;
 
@@ -194,7 +178,7 @@ namespace UI
         private void mensajesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormMensajes mensajes = new FormMensajes();
-            
+            mensajes.RolActual = this.RolUsuario;
             mensajes.Show();
         }
 
