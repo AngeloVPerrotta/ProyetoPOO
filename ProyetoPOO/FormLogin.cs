@@ -25,20 +25,18 @@ namespace UI
 
         public void buttonIniciarSesion_Click(object sender, EventArgs e)
         {
-            string rutaCSV = "usuario_encriptado.csv";          
+            string rutaCSV = "usuario.csv"; // puede ser ruta completa si está en otro lugar
+
             if (!File.Exists(rutaCSV))
             {
-                MessageBox.Show("No se encontró el archivo de usuarios.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No se encontró el archivo de usuarios.");
                 return;
             }
 
             string user = txt_usuario.Text.Trim();
             string pass = txt_contraseña.Text.Trim();
 
-            // 🔐 Encriptar la contraseña ingresada por el usuario
-            string passEncriptada = Seguridad.EncriptarSHA256(pass);
-
-            var lineas = File.ReadAllLines(rutaCSV).Skip(1); // omitir encabezado si lo tiene
+            var lineas = File.ReadAllLines(rutaCSV).Skip(1); // Salta la cabecera
 
             foreach (var linea in lineas)
             {
@@ -46,22 +44,21 @@ namespace UI
 
                 if (partes.Length == 3)
                 {
-                    string archivoUsuario = partes[0].Trim();
-                    string archivoContraseña = partes[1].Trim(); // ya debería estar encriptada
-                    string archivoRol = partes[2].Trim().ToLower();
+                    string archivoUsuario = partes[0];
+                    string archivoContraseña = partes[1];
+                    string archivoRol = partes[2];
 
-                    // 👇 Comparar usuario + contraseña encriptada
-                    if (user == archivoUsuario && passEncriptada == archivoContraseña)
+                    if (user == archivoUsuario && pass == archivoContraseña)
                     {
                         Usuario = user;
                         Rol = archivoRol;
-                        this.DialogResult = DialogResult.OK;
-                        this.Close();
+                        DialogResult = DialogResult.OK;
                         return;
                     }
                 }
-            }
 
+
+            }
             // ❌ Login fallido
             MessageBox.Show("Usuario o contraseña incorrectos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
