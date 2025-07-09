@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics.Eventing.Reader;
+using System.Runtime.InteropServices.ComTypes;
 
 namespace ProyetoPOO
 {
@@ -31,15 +32,18 @@ namespace ProyetoPOO
         }           
         private void FormProveedores_Load(object sender, EventArgs e)
         {
-            inicializartabla();            
+            inicializartabla();  
+            cargarDesdeCSV();
         }               
         private void inicializartabla() 
         {
             tablaProv = new DataTable();
+            tablaProv.Columns.Add("ID");
             tablaProv.Columns.Add("Nombre");
             tablaProv.Columns.Add("Rubro");
             tablaProv.Columns.Add("Contacto");
             dataGridViewProv.DataSource = tablaProv;
+            dataGridViewProv.Columns["ID"].Width = 35;
         }
         private void escriba(string texto) 
         {
@@ -47,49 +51,42 @@ namespace ProyetoPOO
         }
         private void cargarDesdeCSV() 
         {
-            FileStream fs = new FileStream("Proveedores.csv",FileMode.Open,FileAccess.Read);
-            StreamReader sr = new StreamReader(fs);            
-            string linea = "";
-            string legajo = "";
-            string[] vl = new string[0];
-            linea = sr.ReadLine();
-            linea = sr.ReadLine();
-            while (linea != null) 
-            {
-                vl = linea.Split(';');
-                string texto = vl[0] + vl[1] + vl[2] + vl[3];
-                legajo = vl[0];
-                escriba(texto);
-                linea = sr.ReadLine();
-                if (linea != null) 
+            try
+            {                                
+                using (StreamReader sr = new StreamReader("Proveedores.csv"))
                 {
-                    vl = linea.Split(';');
+                    string primeralinea = sr.ReadLine();
+                    if (primeralinea == null)
+                    {
+                        string[] cabeceras = primeralinea.Split(';');
+
+                        foreach (string cabecera in cabeceras)
+                        {
+                            dataGridViewProv.Columns.Add(cabecera, cabecera);
+                        }
+                        while (sr.EndOfStream)
+                        {
+                            string linea = sr.ReadLine();
+                            string[] valores = linea.Split(';');
+                            dataGridViewProv.Rows.Add(valores);
+                        }
+                    }
                 }
-                sr.Close();
-                fs.Close();
             }
-            //if (File.Exists(rutacsv)) 
-            //{
-            //    var lineas = File.ReadAllLines(rutacsv);
-            //    foreach (var line in lineas) 
-            //    {
-            //        var datos = line.Split(';');
-            //        if (datos.Length == 3) 
-            //        {
-            //            tablaProv.Rows.Add(datos);
-            //        }
-            //    }
-            //}
+            catch (Exception ex) 
+            {
+                MessageBox.Show("Error al cargar el archivo CSV: " + ex.Message);
+            }
         }
 
         private void buttonAgregarProv_Click(object sender, EventArgs e)
         {
             if (okay())
             {
-                string[] vectorlinea = new string[3];
-                vectorlinea[0] = textBoxProv.Text;
-                vectorlinea[1] = textBoxRubro.Text;
-                vectorlinea[2] = textBoxContacto.Text;
+                string[] vectorlinea = new string[4];
+                vectorlinea[1] = textBoxProv.Text;
+                vectorlinea[2] = textBoxRubro.Text;
+                vectorlinea[3] = textBoxContacto.Text;
                 tablaProv.Rows.Add(vectorlinea);
                 limpiarCampos();
             }
@@ -115,15 +112,26 @@ namespace ProyetoPOO
 
         }
 
+        private int filaselecionada = -1;
         private void dataGridViewProv_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
-                var confirm = MessageBox.Show("¿Deseas eliminar esta fila?", "Confirmar eliminación", MessageBoxButtons.YesNo);
-                if (confirm == DialogResult.Yes)
-                {
-                    dataGridViewProv.Rows.RemoveAt(e.RowIndex);
-                }
+                filaselecionada = e.RowIndex;
+            }
+        }
+
+        private void buttonElimProv_Click(object sender, EventArgs e)
+        {
+            var confirm = MessageBox.Show("¿Deseas eliminar esta fila?", "Confirmar eliminación", MessageBoxButtons.YesNo);
+            if (confirm == DialogResult.Yes)
+            {
+                dataGridViewProv.Rows.RemoveAt(filaselecionada);
+                filaselecionada = -1;
+            }
+            else 
+            {
+                MessageBox.Show("Selecione fila a eliminar");
             }
         }
     }

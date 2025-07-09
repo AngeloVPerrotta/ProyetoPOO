@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dataGridViewProv = new System.Windows.Forms.DataGridView();
             this.textBoxProv = new System.Windows.Forms.TextBox();
             this.textBoxRubro = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -40,10 +41,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dataGridViewProv = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProv)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -53,6 +53,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(392, 378);
             this.panel1.TabIndex = 0;
+            // 
+            // dataGridViewProv
+            // 
+            this.dataGridViewProv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewProv.Location = new System.Drawing.Point(3, 26);
+            this.dataGridViewProv.Name = "dataGridViewProv";
+            this.dataGridViewProv.Size = new System.Drawing.Size(386, 338);
+            this.dataGridViewProv.TabIndex = 0;
+            this.dataGridViewProv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewProv_CellContentClick);
             // 
             // textBoxProv
             // 
@@ -115,6 +124,7 @@
             this.buttonElimProv.TabIndex = 6;
             this.buttonElimProv.Text = "Eliminar proveedor";
             this.buttonElimProv.UseVisualStyleBackColor = true;
+            this.buttonElimProv.Click += new System.EventHandler(this.buttonElimProv_Click);
             // 
             // textBoxContacto
             // 
@@ -159,15 +169,6 @@
             this.panel2.TabIndex = 1;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
-            // dataGridViewProv
-            // 
-            this.dataGridViewProv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewProv.Location = new System.Drawing.Point(18, 26);
-            this.dataGridViewProv.Name = "dataGridViewProv";
-            this.dataGridViewProv.Size = new System.Drawing.Size(354, 338);
-            this.dataGridViewProv.TabIndex = 0;
-            this.dataGridViewProv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewProv_CellContentClick);
-            // 
             // FormProveedores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -179,9 +180,9 @@
             this.Text = "PROVEEDORES";
             this.Load += new System.EventHandler(this.FormProveedores_Load);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProv)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProv)).EndInit();
             this.ResumeLayout(false);
 
         }
