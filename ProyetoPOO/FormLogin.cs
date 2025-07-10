@@ -35,7 +35,7 @@ namespace UI
 
             string user = txt_usuario.Text.Trim();
             string pass = txt_contraseña.Text.Trim();
-
+            
             var lineas = File.ReadAllLines(rutaCSV).Skip(1); // Salta la cabecera
 
             foreach (var linea in lineas)
