@@ -39,7 +39,7 @@ namespace UI
             var lineas = File.ReadAllLines(rutaCSV).Skip(1); // Salta la cabecera
 
             foreach (var linea in lineas)
-            {
+            { 
                 var partes = linea.Split(',');
 
                 if (partes.Length == 3)
