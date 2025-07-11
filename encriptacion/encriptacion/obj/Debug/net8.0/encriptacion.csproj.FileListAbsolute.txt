@@ -1,0 +1,14 @@
+C:\Users\Usuario\source\repos\encriptacion\encriptacion\bin\Debug\net8.0\encriptacion.exe
+C:\Users\Usuario\source\repos\encriptacion\encriptacion\bin\Debug\net8.0\encriptacion.deps.json
+C:\Users\Usuario\source\repos\encriptacion\encriptacion\bin\Debug\net8.0\encriptacion.runtimeconfig.json
+C:\Users\Usuario\source\repos\encriptacion\encriptacion\bin\Debug\net8.0\encriptacion.dll
+C:\Users\Usuario\source\repos\encriptacion\encriptacion\bin\Debug\net8.0\encriptacion.pdb
+C:\Users\Usuario\source\repos\encriptacion\encriptacion\obj\Debug\net8.0\encriptacion.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Usuario\source\repos\encriptacion\encriptacion\obj\Debug\net8.0\encriptacion.AssemblyInfoInputs.cache
+C:\Users\Usuario\source\repos\encriptacion\encriptacion\obj\Debug\net8.0\encriptacion.AssemblyInfo.cs
+C:\Users\Usuario\source\repos\encriptacion\encriptacion\obj\Debug\net8.0\encriptacion.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\source\repos\encriptacion\encriptacion\obj\Debug\net8.0\encriptacion.dll
+C:\Users\Usuario\source\repos\encriptacion\encriptacion\obj\Debug\net8.0\refint\encriptacion.dll
+C:\Users\Usuario\source\repos\encriptacion\encriptacion\obj\Debug\net8.0\encriptacion.pdb
+C:\Users\Usuario\source\repos\encriptacion\encriptacion\obj\Debug\net8.0\encriptacion.genruntimeconfig.cache
+C:\Users\Usuario\source\repos\encriptacion\encriptacion\obj\Debug\net8.0\ref\encriptacion.dll
