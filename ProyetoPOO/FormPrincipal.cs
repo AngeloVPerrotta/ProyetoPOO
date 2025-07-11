@@ -85,7 +85,7 @@ namespace UI
         {
             // Primero, ocultar todo por defecto
           
-            productosToolStripMenuItem.Visible = false;
+
             proveedoresToolStripMenuItem.Visible = false;
             pedidosToolStripMenuItem.Visible = false;
             recepcionesToolStripMenuItem.Visible = false;
@@ -96,7 +96,7 @@ namespace UI
             {
                 case "administrador":
                     
-                    productosToolStripMenuItem.Visible = true;
+                   
                     proveedoresToolStripMenuItem.Visible = true;
                     pedidosToolStripMenuItem.Visible = true;
                     recepcionesToolStripMenuItem.Visible = true;
@@ -110,13 +110,13 @@ namespace UI
 
                 case "usuario":
                 case "compras":
-                    productosToolStripMenuItem.Visible = true;
+
                     pedidosToolStripMenuItem.Visible = true;
                     recepcionesToolStripMenuItem.Visible = true;
                     break;
 
                 case "visitante":
-                    productosToolStripMenuItem.Visible = true;
+
                     proveedoresToolStripMenuItem.Visible = true;
                     pedidosToolStripMenuItem.Visible = true;
                     break;
@@ -146,38 +146,34 @@ namespace UI
         {
 
         }
-
-        private void productosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormProductos productos = new FormProductos();
-           
-            productos.Show();
-        }
+        FormPedidos pedidos = new FormPedidos();
 
         private void pedidosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormPedidos pedidos = new FormPedidos();
+
             
             pedidos.Show();
         }
-
+        FormProveedores proveedores = new FormProveedores();
         private void proveedoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormProveedores proveedores = new FormProveedores();
+
             
             proveedores.Show();
         }
 
+        FormRRHH RRHH = new FormRRHH();
         private void empleadosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormRRHH RRHH = new FormRRHH();
+
             
             RRHH.Show();
         }
 
+        FormMensajes mensajes = new FormMensajes();
         private void mensajesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormMensajes mensajes = new FormMensajes();
+
             mensajes.RolActual = this.RolUsuario;
             mensajes.Show();
         }
@@ -202,10 +198,11 @@ namespace UI
             label3.Text = $"Rol actual: {RolUsuario}";
 
         }
+        FormRecepciones recepciones = new FormRecepciones();
 
         private void recepcionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormRecepciones recepciones = new FormRecepciones(); 
+
             recepciones.Show();
         }
 
@@ -213,10 +210,11 @@ namespace UI
         {
 
         }
+        FormRRHH rrhh = new FormRRHH();
 
         private void recursosHumanosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormRRHH rrhh = new FormRRHH();
+
             rrhh.Show();
         }
     }

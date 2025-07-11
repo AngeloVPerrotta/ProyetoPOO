@@ -44,7 +44,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.txt_proveedor = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.dataGridViewPedidos = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPedidos)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -148,6 +152,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.txt_proveedor);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.txt_costo);
@@ -166,6 +172,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(392, 280);
             this.panel1.TabIndex = 12;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // txt_proveedor
             // 
@@ -183,16 +190,48 @@
             this.label7.TabIndex = 13;
             this.label7.Text = "Proveedor";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(121, 235);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(97, 23);
+            this.button1.TabIndex = 15;
+            this.button1.Text = "Modificar pedido";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(224, 235);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(97, 23);
+            this.button2.TabIndex = 16;
+            this.button2.Text = "Eliminar pedido";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // dataGridViewPedidos
+            // 
+            this.dataGridViewPedidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewPedidos.Location = new System.Drawing.Point(423, 12);
+            this.dataGridViewPedidos.Name = "dataGridViewPedidos";
+            this.dataGridViewPedidos.Size = new System.Drawing.Size(449, 280);
+            this.dataGridViewPedidos.TabIndex = 13;
+            this.dataGridViewPedidos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPedidos_CellContentClick);
+            // 
             // FormPedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(896, 450);
+            this.ClientSize = new System.Drawing.Size(884, 324);
+            this.Controls.Add(this.dataGridViewPedidos);
             this.Controls.Add(this.panel1);
             this.Name = "FormPedidos";
             this.Text = "PEDIDOS";
+            this.Load += new System.EventHandler(this.FormPedidos_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPedidos)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -215,5 +254,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txt_proveedor;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridView dataGridViewPedidos;
     }
 }

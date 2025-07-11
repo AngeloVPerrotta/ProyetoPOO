@@ -13,34 +13,21 @@ namespace ProyetoPOO
 {
     public partial class FormRecepciones : Form
     {
+
+        private string rutaCsv = Path.Combine(Application.StartupPath, "recepciones.csv");
+
         public FormRecepciones()
         {
             InitializeComponent();
-        }
 
-        private void FormRecepciones_Load(object sender, EventArgs e)
-        {
             dataGridViewRecepciones.Columns.Add("Proveedor", "Proveedor");
             dataGridViewRecepciones.Columns.Add("Remito", "N° Remito");
             dataGridViewRecepciones.Columns.Add("Empleado", "Empleado");
             dataGridViewRecepciones.Columns.Add("Cajas", "Cantidad de cajas");
             dataGridViewRecepciones.Columns.Add("Hora", "Hora de llegada");
-
-            string ruta = "recepciones.csv";
-            if (!File.Exists(ruta))
-            {
-                File.WriteAllText(ruta, "Proveedor,Remito,Empleado,Cajas,Hora de llegada" + Environment.NewLine);
-            }
-
-            var lineas = File.ReadAllLines(ruta).Skip(1);
-            foreach (string linea in lineas)
-            {
-                Recepcion r = Recepcion.FromCsv(linea);
-                dataGridViewRecepciones.Rows.Add(r.Proveedor, r.Remito, r.Empleado, r.Cajas, r.HoraLlegada);
-            }
         }
 
-        private void btn_CargarRecepcion_Click(object sender, EventArgs e)
+        private void btn_CargarRecepcion_Click_1(object sender, EventArgs e)
         {
             if (txt_proveedor.Text == "" || txt_remito.Text == "" || txt_empleado.Text == "")
             {
@@ -48,26 +35,59 @@ namespace ProyetoPOO
                 return;
             }
 
-            Recepcion nueva = new Recepcion
-            {
-                Proveedor = txt_proveedor.Text,
-                Remito = txt_remito.Text,
-                Empleado = txt_empleado.Text,
-                Cajas = (int)num_cajas.Value,
-                HoraLlegada = dtp_llegada.Value
-            };
+            // Aquí creas la línea CSV para el nuevo registro
+            string nuevaLinea = $"{txt_proveedor.Text};{txt_remito.Text};{txt_empleado.Text};{num_cajas.Value};{dtp_llegada.Value:yyyy-MM-dd HH:mm:ss}";
 
-            File.AppendAllText("recepciones.csv", nueva.ToCsv() + Environment.NewLine);
+            // Agrega la nueva línea al archivo CSV local
+            File.AppendAllText(rutaCsv, nuevaLinea + Environment.NewLine);
 
-            dataGridViewRecepciones.Rows.Add(nueva.Proveedor, nueva.Remito, nueva.Empleado, nueva.Cajas, nueva.HoraLlegada);
+            // Agrega la nueva fila al DataGridView
+            dataGridViewRecepciones.Rows.Add(txt_proveedor.Text, txt_remito.Text, txt_empleado.Text, num_cajas.Value, dtp_llegada.Value.ToString("HH:mm"));
 
+            // Limpia los campos para el siguiente registro
             txt_proveedor.Text = "";
             txt_remito.Text = "";
             txt_empleado.Text = "";
             num_cajas.Value = 0;
             dtp_llegada.Value = DateTime.Now;
+        }
+
+        private void FormRecepciones_Load_1(object sender, EventArgs e)
+        {
 
 
+
+            try
+            {
+                // Verifica si el archivo existe. Si no, lo crea con la cabecera.
+                if (!File.Exists(rutaCsv))
+                {
+                    File.WriteAllText(rutaCsv, "Proveedor;Remito;Empleado;Cajas;HoraLlegada" + Environment.NewLine);
+                }
+
+                // Lee todas las líneas del archivo CSV local
+                var lineas = File.ReadAllLines(rutaCsv).Skip(1);
+
+                foreach (string linea in lineas)
+                {
+                    // Si el archivo tiene líneas vacías, las ignora
+                    if (string.IsNullOrWhiteSpace(linea)) continue;
+
+                    string[] valores = linea.Split(';');
+                    // Aquí debes asegurarte de que el método Recepcion.FromCsv use ';' como separador
+                    // O bien, adaptar este código para que use la clase Recepcion
+
+                    // Ejemplo de cómo llenar la tabla directamente:
+                    if (valores.Length >= 5)
+                    {
+                        dataGridViewRecepciones.Rows.Add(valores[0], valores[1], valores[2], valores[3], valores[4]);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar el archivo de recepciones: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

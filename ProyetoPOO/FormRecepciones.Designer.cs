@@ -52,6 +52,7 @@
             this.btn_CargarRecepcion.TabIndex = 24;
             this.btn_CargarRecepcion.Text = "Cargar recepcion";
             this.btn_CargarRecepcion.UseVisualStyleBackColor = true;
+            this.btn_CargarRecepcion.Click += new System.EventHandler(this.btn_CargarRecepcion_Click_1);
             // 
             // num_cajas
             // 
@@ -160,6 +161,7 @@
             this.Controls.Add(this.txt_proveedor);
             this.Name = "FormRecepciones";
             this.Text = "FormRecepciones";
+            this.Load += new System.EventHandler(this.FormRecepciones_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.num_cajas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRecepciones)).EndInit();
             this.ResumeLayout(false);

@@ -51,31 +51,49 @@ namespace ProyetoPOO
         }
         private void cargarDesdeCSV() 
         {
+            // Usamos Path.Combine para una ruta más robusta
+            string rutaCompleta = Path.Combine(Application.StartupPath, rutacsv);
+
             try
-            {                                
-                using (StreamReader sr = new StreamReader("Proveedores.csv"))
+            {
+                // Verifica si el archivo existe
+                if (!File.Exists(rutaCompleta))
+                {
+                    MessageBox.Show("El archivo 'Proveedores.csv' no se encontró.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                using (StreamReader sr = new StreamReader(rutaCompleta))
                 {
                     string primeralinea = sr.ReadLine();
-                    if (primeralinea == null)
-                    {
-                        string[] cabeceras = primeralinea.Split(';');
 
-                        foreach (string cabecera in cabeceras)
+                    // La condición correcta es "si la primera línea no es nula"
+                    if (primeralinea != null)
+                    {
+                        // No es necesario añadir las columnas aquí, ya se hace en inicializartabla()
+                        // Solo nos aseguramos de que haya datos para procesar
+                    }
+
+                    string linea;
+                    // Bucle correcto para leer cada línea del archivo hasta el final
+                    while ((linea = sr.ReadLine()) != null)
+                    {
+                        if (string.IsNullOrWhiteSpace(linea)) continue;
+
+                        string[] valores = linea.Split(';');
+
+                        // Asegúrate de que la fila tenga el número correcto de valores
+                        if (valores.Length >= 4)
                         {
-                            dataGridViewProv.Columns.Add(cabecera, cabecera);
-                        }
-                        while (sr.EndOfStream)
-                        {
-                            string linea = sr.ReadLine();
-                            string[] valores = linea.Split(';');
-                            dataGridViewProv.Rows.Add(valores);
+                            // Añadimos la fila a la DataTable, no al DataGridView directamente
+                            tablaProv.Rows.Add(valores);
                         }
                     }
                 }
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
-                MessageBox.Show("Error al cargar el archivo CSV: " + ex.Message);
+                MessageBox.Show("Error al cargar el archivo CSV: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -117,7 +135,18 @@ namespace ProyetoPOO
         {
             if (e.RowIndex >= 0)
             {
+                // Almacena el índice de la fila seleccionada en la variable de clase
                 filaselecionada = e.RowIndex;
+
+                // Obtiene la fila completa seleccionada
+                DataGridViewRow fila = dataGridViewProv.Rows[e.RowIndex];
+
+                // Carga los valores de la fila en los cuadros de texto.
+                // Asegúrate de que las columnas están en el orden correcto
+                // Columnas en tu DataTable: ID, Nombre, Rubro, Contacto
+                textBoxProv.Text = fila.Cells["Nombre"].Value.ToString();
+                textBoxRubro.Text = fila.Cells["Rubro"].Value.ToString();
+                textBoxContacto.Text = fila.Cells["Contacto"].Value.ToString();
             }
         }
 
@@ -132,6 +161,69 @@ namespace ProyetoPOO
             else 
             {
                 MessageBox.Show("Selecione fila a eliminar");
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (filaselecionada == -1)
+            {
+                MessageBox.Show("Seleccione una fila para modificar.");
+                return;
+            }
+
+            // Usa tu método existente para verificar que los campos estén completos
+            if (!okay())
+            {
+                MessageBox.Show("Complete todos los campos para modificar el proveedor.");
+                return;
+            }
+
+            // Actualiza los datos en la fila seleccionada del DataTable
+            tablaProv.Rows[filaselecionada]["Nombre"] = textBoxProv.Text;
+            tablaProv.Rows[filaselecionada]["Rubro"] = textBoxRubro.Text;
+            tablaProv.Rows[filaselecionada]["Contacto"] = textBoxContacto.Text;
+
+            // Llama al método para guardar todos los datos en el archivo
+            guardarEnCSV();
+
+            // Notifica al usuario, limpia los campos y resetea el índice
+            MessageBox.Show("Proveedor modificado correctamente.");
+            limpiarCampos();
+            filaselecionada = -1;
+        }
+
+        private void guardarEnCSV()
+        {
+            try
+            {
+                // Usa la ruta de tu archivo
+                string rutaCompleta = Path.Combine(Application.StartupPath, rutacsv);
+
+                // StringBuilder es más eficiente para construir cadenas grandes
+                StringBuilder sb = new StringBuilder();
+
+                // Agrega el encabezado al archivo
+                sb.AppendLine("ID;Nombre;Rubro;Contacto");
+
+                // Recorre cada fila del DataTable y la convierte a formato CSV
+                foreach (DataRow fila in tablaProv.Rows)
+                {
+                    // El ID es la primera columna
+                    string id = fila["ID"].ToString();
+                    string nombre = fila["Nombre"].ToString();
+                    string rubro = fila["Rubro"].ToString();
+                    string contacto = fila["Contacto"].ToString();
+
+                    sb.AppendLine($"{id};{nombre};{rubro};{contacto}");
+                }
+
+                // Escribe todo el contenido de una vez en el archivo
+                File.WriteAllText(rutaCompleta, sb.ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al guardar en el archivo CSV: " + ex.Message);
             }
         }
     }

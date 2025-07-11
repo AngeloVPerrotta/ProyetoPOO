@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
+using System.Data; // Necesario para DataTable
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Security.Cryptography; // Necesario para MD5
 
 namespace UI
 {
@@ -17,6 +18,9 @@ namespace UI
         {
             InitializeComponent();
         }
+        private DataTable tablaUsuarios;
+        private string rutaUsuariosCsv = Path.Combine(Application.StartupPath, "usuario_encriptado.csv");
+        
 
         private void label3_Click(object sender, EventArgs e)
         {
@@ -29,48 +33,132 @@ namespace UI
             string contraseña = txtContraseña.Text.Trim();
             string rol = txtRol.Text.Trim();
 
-
             if (string.IsNullOrEmpty(usuario) || string.IsNullOrEmpty(contraseña) || string.IsNullOrEmpty(rol))
             {
                 MessageBox.Show("Todos los campos son obligatorios.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Question);
                 return;
             }
 
-            string ruta = "C:\\Users\\perro\\Desktop\\PROGRAMACION\\ProyectoPOOTEST\\DAL\\usuario.csv";
-
-
-            string linea = $"{usuario};{contraseña};{rol}";
+            string contraseñaHasheada = HashMD5(contraseña);
 
             try
             {
-
-                if (File.Exists(ruta))
+                // Si el archivo no existe, lo creamos con el encabezado.
+                if (!File.Exists(rutaUsuariosCsv))
                 {
-                    var existentes = File.ReadAllLines(ruta);
-                    foreach (string l in existentes)
+                    File.AppendAllText(rutaUsuariosCsv, "usuario,contraseña,rol" + Environment.NewLine);
+                }
+
+                // Revisamos si el usuario ya existe para evitar duplicados
+                var existentes = File.ReadAllLines(rutaUsuariosCsv);
+                foreach (string l in existentes)
+                {
+                    var partes = l.Split(',');
+                    if (partes.Length > 0 && partes[0].Trim().Equals(usuario, StringComparison.OrdinalIgnoreCase))
                     {
-                        var partes = l.Split(';');
-                        if (partes[0] == usuario)
-                        {
-                            MessageBox.Show("El usuario ya existe.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Question);
-                            return;
-                        }
+                        MessageBox.Show("El usuario ya existe.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                        return;
                     }
                 }
 
+                string linea = $"{usuario},{contraseñaHasheada},{rol}";
 
-                File.AppendAllText(ruta, linea + Environment.NewLine);
+                File.AppendAllText(rutaUsuariosCsv, linea + Environment.NewLine);
                 MessageBox.Show("Usuario registrado correctamente.");
 
-
+                // Limpiar campos
                 txtUsuario.Clear();
                 txtContraseña.Clear();
                 txtRol.Clear();
+
+                // --- RECARGAR EL DATAGRIDVIEW DESPUÉS DE AÑADIR UN USUARIO ---
+                CargarUsuariosEnDataGridView();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al guardar usuario", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error al guardar usuario: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        private void InicializarDataGridView()
+        {
+            dataGridViewUsuarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            tablaUsuarios = new DataTable();
+            tablaUsuarios.Columns.Add("Usuario");
+            tablaUsuarios.Columns.Add("Contraseña"); // Esta columna mostrará el placeholder
+            tablaUsuarios.Columns.Add("Rol");
+
+            dataGridViewUsuarios.DataSource = tablaUsuarios;
+
+            // Opcional: Ajustar el ancho de las columnas
+            dataGridViewUsuarios.Columns["Usuario"].Width = 100;
+            dataGridViewUsuarios.Columns["Contraseña"].Width = 200; // Más ancho para el hash o placeholder
+            dataGridViewUsuarios.Columns["Rol"].Width = 100;
+
+            // Deshabilitar la edición directa en el DataGridView si no es deseado
+            dataGridViewUsuarios.ReadOnly = true;
+            dataGridViewUsuarios.AllowUserToAddRows = false; // No permitir añadir filas directamente
+        }
+
+        private void CargarUsuariosEnDataGridView()
+        {
+            tablaUsuarios.Rows.Clear(); // Limpia la tabla antes de recargar
+
+            try
+            {
+                if (!File.Exists(rutaUsuariosCsv))
+                {
+                    // Si el archivo no existe, lo creamos con el encabezado.
+                    // Esto es importante para que no falle al intentar leerlo.
+                    File.AppendAllText(rutaUsuariosCsv, "usuario,contraseña,rol" + Environment.NewLine);
+                    return; // No hay usuarios que cargar si se acaba de crear
+                }
+
+                var lineas = File.ReadAllLines(rutaUsuariosCsv).Skip(1); // Salta la cabecera
+
+                foreach (string linea in lineas)
+                {
+                    if (string.IsNullOrWhiteSpace(linea)) continue; // Ignora líneas vacías
+
+                    var partes = linea.Split(','); // Asegúrate de que el separador sea la coma
+
+                    if (partes.Length == 3)
+                    {
+                        string usuario = partes[0].Trim();
+                        // string contraseñaHasheada = partes[1].Trim(); // No la necesitamos directamente para mostrar
+                        string rol = partes[2].Trim();
+
+                        // Añadimos el usuario, un placeholder para la contraseña, y el rol
+                        tablaUsuarios.Rows.Add(usuario, "********", rol);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar usuarios en DataGridView: {ex.Message}", "Error de Carga", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private string HashMD5(string input)
+        {
+            using (MD5 md5 = MD5.Create())
+            {
+                byte[] inputBytes = Encoding.UTF8.GetBytes(input);
+                byte[] hashBytes = md5.ComputeHash(inputBytes);
+                StringBuilder sb = new StringBuilder();
+                for (int i = 0; i < hashBytes.Length; i++)
+                {
+                    sb.Append(hashBytes[i].ToString("x2"));
+                }
+                return sb.ToString();
+            }
+        }
+
+        private void FormRRHH_Load(object sender, EventArgs e)
+        {
+            InicializarDataGridView();
+            CargarUsuariosEnDataGridView();
+
         }
     }
 }

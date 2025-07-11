@@ -39,8 +39,8 @@
             this.buttonElimProv = new System.Windows.Forms.Button();
             this.textBoxContacto = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProv)).BeginInit();
             this.panel2.SuspendLayout();
@@ -51,7 +51,7 @@
             this.panel1.Controls.Add(this.dataGridViewProv);
             this.panel1.Location = new System.Drawing.Point(260, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(392, 378);
+            this.panel1.Size = new System.Drawing.Size(605, 378);
             this.panel1.TabIndex = 0;
             // 
             // dataGridViewProv
@@ -59,7 +59,7 @@
             this.dataGridViewProv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewProv.Location = new System.Drawing.Point(3, 26);
             this.dataGridViewProv.Name = "dataGridViewProv";
-            this.dataGridViewProv.Size = new System.Drawing.Size(386, 338);
+            this.dataGridViewProv.Size = new System.Drawing.Size(586, 338);
             this.dataGridViewProv.TabIndex = 0;
             this.dataGridViewProv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewProv_CellContentClick);
             // 
@@ -142,15 +142,6 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "Contacto";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(35, 213);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(178, 23);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Mostrar proveedores";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.button1);
@@ -169,11 +160,21 @@
             this.panel2.TabIndex = 1;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(35, 213);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(178, 23);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Modificar proveedor";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FormProveedores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(662, 402);
+            this.ClientSize = new System.Drawing.Size(909, 402);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "FormProveedores";
@@ -199,8 +200,8 @@
         private System.Windows.Forms.Button buttonElimProv;
         private System.Windows.Forms.TextBox textBoxContacto;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dataGridViewProv;
+        private System.Windows.Forms.Button button1;
     }
 }
