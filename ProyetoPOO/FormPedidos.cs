@@ -177,7 +177,7 @@ namespace UI
                 filaSeleccionada = -1;
             }
         }
-
+        //f
         private void dataGridViewPedidos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
