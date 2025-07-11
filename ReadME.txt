@@ -22,6 +22,8 @@ CONTRASEÑA: 0000
 
 DOCUMENTACION: https://docs.google.com/document/d/1PCSAxk-jwu-8tW6neRORe4_vqJi3wdf8/edit?usp=sharing&ouid=100340853837268535023&rtpof=true&sd=true
 
+Explicacion sistema de mensajes: https://youtu.be/aDOM5eXon2I?si=srgC6HG76sUggSMa
+
 Consigna del trabajo:
 
 Sistema de compras a proveedores.
