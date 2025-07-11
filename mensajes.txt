@@ -1,4 +1,0 @@
-visitante;administrador;2025-07-05 08:56;Hola mundo, este es un mensaje de testr
-administrador;usuario;2025-07-05 08:56;Hola mundo!
-usuario;administrador;2025-07-05 09:03;Hola usuarios! Como estan?
-administrador;usuario;2025-07-05 09:03;Bien todo bien
