@@ -101,6 +101,7 @@
     <Compile Include="NodoListaProv.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Recepcion.cs" />
     <Compile Include="RRHHDinamico.cs" />
     <Compile Include="Seguridad.cs" />
     <EmbeddedResource Include="FormMensajes.resx">
@@ -120,6 +121,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormProveedores.resx">
       <DependentUpon>FormProveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRecepciones.resx">
+      <DependentUpon>FormRecepciones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormRRHH.resx">
       <DependentUpon>FormRRHH.cs</DependentUpon>
