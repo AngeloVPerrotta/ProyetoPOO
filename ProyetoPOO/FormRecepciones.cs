@@ -40,6 +40,8 @@ namespace ProyetoPOO
                 dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.SteelBlue;
                 dgv.EnableHeadersVisualStyles = false;
                 dgv.GridColor = Color.LightGray;
+                dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+                dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             }
 
             foreach (Control ctrl in this.Controls.OfType<Button>())
@@ -53,7 +55,7 @@ namespace ProyetoPOO
             Label lblTitulo = new Label
             {
                 Text = "Recepciones",
-                Font = new Font("Segoe UI", 18, FontStyle.Bold),
+                Font = new Font("Segoe UI", 14, FontStyle.Bold),
                 ForeColor = Color.SteelBlue,
                 AutoSize = true,
                 TextAlign = ContentAlignment.MiddleCenter,

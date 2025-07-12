@@ -197,7 +197,7 @@ namespace UI
 
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
-            label1.Text = $"Bienvenido al sistema de gestión de la empresa";
+           
             label3.Text = $"Rol actual: {RolUsuario}";
 
         }
@@ -219,6 +219,11 @@ namespace UI
         {
             FormRRHH rrhh = new FormRRHH();
             rrhh.ShowDialog();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

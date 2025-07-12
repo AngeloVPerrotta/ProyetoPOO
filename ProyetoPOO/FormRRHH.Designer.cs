@@ -39,6 +39,7 @@
             this.txtContraseña = new System.Windows.Forms.TextBox();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsuarios)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -47,9 +48,9 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.dataGridViewUsuarios);
-            this.panel1.Location = new System.Drawing.Point(13, 13);
+            this.panel1.Location = new System.Drawing.Point(12, 72);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(425, 299);
+            this.panel1.Size = new System.Drawing.Size(527, 299);
             this.panel1.TabIndex = 0;
             // 
             // dataGridViewUsuarios
@@ -58,7 +59,7 @@
             this.dataGridViewUsuarios.Location = new System.Drawing.Point(20, 19);
             this.dataGridViewUsuarios.Name = "dataGridViewUsuarios";
             this.dataGridViewUsuarios.RowHeadersWidth = 51;
-            this.dataGridViewUsuarios.Size = new System.Drawing.Size(385, 251);
+            this.dataGridViewUsuarios.Size = new System.Drawing.Size(481, 251);
             this.dataGridViewUsuarios.TabIndex = 0;
             // 
             // groupBox1
@@ -70,7 +71,8 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtContraseña);
             this.groupBox1.Controls.Add(this.txtUsuario);
-            this.groupBox1.Location = new System.Drawing.Point(452, 32);
+            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.groupBox1.Location = new System.Drawing.Point(561, 13);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
@@ -99,7 +101,7 @@
             this.label3.Location = new System.Drawing.Point(30, 147);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(23, 13);
+            this.label3.Size = new System.Drawing.Size(24, 13);
             this.label3.TabIndex = 3;
             this.label3.Text = "Rol";
             this.label3.Click += new System.EventHandler(this.label3_Click);
@@ -109,7 +111,7 @@
             this.txtRol.Location = new System.Drawing.Point(30, 162);
             this.txtRol.Margin = new System.Windows.Forms.Padding(2);
             this.txtRol.Name = "txtRol";
-            this.txtRol.Size = new System.Drawing.Size(76, 20);
+            this.txtRol.Size = new System.Drawing.Size(76, 22);
             this.txtRol.TabIndex = 4;
             // 
             // label2
@@ -118,7 +120,7 @@
             this.label2.Location = new System.Drawing.Point(30, 92);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 13);
+            this.label2.Size = new System.Drawing.Size(66, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "Contraseña";
             // 
@@ -128,7 +130,7 @@
             this.label1.Location = new System.Drawing.Point(30, 41);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 13);
+            this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Usuario";
             // 
@@ -137,7 +139,7 @@
             this.txtContraseña.Location = new System.Drawing.Point(30, 107);
             this.txtContraseña.Margin = new System.Windows.Forms.Padding(2);
             this.txtContraseña.Name = "txtContraseña";
-            this.txtContraseña.Size = new System.Drawing.Size(76, 20);
+            this.txtContraseña.Size = new System.Drawing.Size(76, 22);
             this.txtContraseña.TabIndex = 1;
             // 
             // txtUsuario
@@ -145,14 +147,26 @@
             this.txtUsuario.Location = new System.Drawing.Point(30, 59);
             this.txtUsuario.Margin = new System.Windows.Forms.Padding(2);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(76, 20);
+            this.txtUsuario.Size = new System.Drawing.Size(76, 22);
             this.txtUsuario.TabIndex = 0;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.label4.ForeColor = System.Drawing.Color.SteelBlue;
+            this.label4.Location = new System.Drawing.Point(92, 24);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(213, 25);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "RECURSOS HUMANOS";
             // 
             // FormRRHH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 368);
+            this.ClientSize = new System.Drawing.Size(864, 424);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
             this.Name = "FormRRHH";
@@ -163,6 +177,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -179,5 +194,6 @@
         private System.Windows.Forms.TextBox txtRol;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label4;
     }
 }

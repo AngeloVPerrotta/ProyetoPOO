@@ -39,22 +39,22 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label1.Location = new System.Drawing.Point(340, 104);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(94, 26);
+            this.label1.Size = new System.Drawing.Size(92, 30);
             this.label1.TabIndex = 0;
             this.label1.Text = "Usuario";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label2.Location = new System.Drawing.Point(326, 188);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(134, 26);
+            this.label2.Size = new System.Drawing.Size(130, 30);
             this.label2.TabIndex = 1;
             this.label2.Text = "Contraseña";
             // 
@@ -70,7 +70,7 @@
             // buttonIniciarSesion
             // 
             this.buttonIniciarSesion.BackColor = System.Drawing.Color.AliceBlue;
-            this.buttonIniciarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonIniciarSesion.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
             this.buttonIniciarSesion.ForeColor = System.Drawing.SystemColors.WindowText;
             this.buttonIniciarSesion.Location = new System.Drawing.Point(273, 316);
             this.buttonIniciarSesion.Name = "buttonIniciarSesion";
@@ -88,6 +88,7 @@
             this.txt_contraseña.Size = new System.Drawing.Size(100, 20);
             this.txt_contraseña.TabIndex = 3;
             this.txt_contraseña.Text = "admin123";
+            this.txt_contraseña.UseSystemPasswordChar = true;
             // 
             // txt_usuario
             // 

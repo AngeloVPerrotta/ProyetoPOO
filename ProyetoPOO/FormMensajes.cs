@@ -86,7 +86,13 @@ namespace ProyetoPOO
 
             dgvMensajes.DefaultCellStyle.Font = new Font("Segoe UI", 10);
             dgvMensajes.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-
+            dgvMensajes.BackgroundColor = Color.White;
+            dgvMensajes.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 11, FontStyle.Bold);
+            dgvMensajes.ColumnHeadersDefaultCellStyle.BackColor = Color.SteelBlue;
+            dgvMensajes.EnableHeadersVisualStyles = false;
+            dgvMensajes.GridColor = Color.LightGray;
+            dgvMensajes.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvMensajes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             lblRemitente.Text = $"ROL ACTUAL: {RolActual}";
             string rolDestino = cmbDestinatarioRol.Text.Trim();

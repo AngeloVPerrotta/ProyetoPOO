@@ -67,14 +67,14 @@
             // 
             this.textBoxProv.Location = new System.Drawing.Point(113, 56);
             this.textBoxProv.Name = "textBoxProv";
-            this.textBoxProv.Size = new System.Drawing.Size(100, 20);
+            this.textBoxProv.Size = new System.Drawing.Size(100, 22);
             this.textBoxProv.TabIndex = 0;
             // 
             // textBoxRubro
             // 
             this.textBoxRubro.Location = new System.Drawing.Point(113, 92);
             this.textBoxRubro.Name = "textBoxRubro";
-            this.textBoxRubro.Size = new System.Drawing.Size(100, 20);
+            this.textBoxRubro.Size = new System.Drawing.Size(100, 22);
             this.textBoxRubro.TabIndex = 1;
             // 
             // label1
@@ -82,7 +82,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(32, 63);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 13);
+            this.label1.Size = new System.Drawing.Size(59, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Proveedor";
             // 
@@ -91,7 +91,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(32, 99);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(36, 13);
+            this.label2.Size = new System.Drawing.Size(39, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Rubro";
             // 
@@ -99,11 +99,11 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.SystemColors.Control;
-            this.label3.Font = new System.Drawing.Font("MS Reference Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.SteelBlue;
             this.label3.Location = new System.Drawing.Point(12, 26);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(277, 24);
+            this.label3.Size = new System.Drawing.Size(245, 25);
             this.label3.TabIndex = 4;
             this.label3.Text = "Agregar nuevo proveedor";
             this.label3.Click += new System.EventHandler(this.label3_Click);
@@ -138,7 +138,7 @@
             // 
             this.textBoxContacto.Location = new System.Drawing.Point(113, 123);
             this.textBoxContacto.Name = "textBoxContacto";
-            this.textBoxContacto.Size = new System.Drawing.Size(100, 20);
+            this.textBoxContacto.Size = new System.Drawing.Size(100, 22);
             this.textBoxContacto.TabIndex = 7;
             // 
             // label4
@@ -146,7 +146,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(32, 130);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(50, 13);
+            this.label4.Size = new System.Drawing.Size(54, 13);
             this.label4.TabIndex = 8;
             this.label4.Text = "Contacto";
             // 
@@ -161,6 +161,7 @@
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.textBoxRubro);
             this.panel2.Controls.Add(this.textBoxProv);
+            this.panel2.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.panel2.Location = new System.Drawing.Point(12, 69);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(242, 307);

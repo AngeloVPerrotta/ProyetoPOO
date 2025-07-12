@@ -37,18 +37,7 @@ namespace ProyetoPOO
 
             this.BackColor = Color.WhiteSmoke;
 
-            foreach (Control ctrl in this.Controls)
-            {
-                ctrl.Font = new Font("Segoe UI", 11);
-            }
-
-            // Aplica color a los botones
-            foreach (Control ctrl in this.Controls.OfType<Button>())
-            {
-                ctrl.BackColor = Color.SteelBlue;
-                ctrl.ForeColor = Color.White;
-                ctrl.Font = new Font("Segoe UI", 11, FontStyle.Bold);
-            }
+            
 
             // Aplica color a los encabezados del DataGridView
             dataGridViewProv.EnableHeadersVisualStyles = false;
@@ -73,8 +62,6 @@ namespace ProyetoPOO
             {
                 var dgv = this.Controls.OfType<DataGridView>().First();
                 dgv.BackgroundColor = Color.White;
-                dgv.DefaultCellStyle.Font = new Font("Segoe UI", 10);
-                dgv.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 11, FontStyle.Bold);
                 dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.SteelBlue;
  
                 dgv.GridColor = Color.LightGray;

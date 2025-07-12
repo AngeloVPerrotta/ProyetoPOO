@@ -46,19 +46,23 @@
             // 
             // btn_CargarRecepcion
             // 
-            this.btn_CargarRecepcion.Location = new System.Drawing.Point(64, 348);
+            this.btn_CargarRecepcion.BackColor = System.Drawing.Color.SteelBlue;
+            this.btn_CargarRecepcion.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.btn_CargarRecepcion.ForeColor = System.Drawing.Color.White;
+            this.btn_CargarRecepcion.Location = new System.Drawing.Point(28, 382);
             this.btn_CargarRecepcion.Name = "btn_CargarRecepcion";
-            this.btn_CargarRecepcion.Size = new System.Drawing.Size(100, 41);
+            this.btn_CargarRecepcion.Size = new System.Drawing.Size(183, 56);
             this.btn_CargarRecepcion.TabIndex = 24;
             this.btn_CargarRecepcion.Text = "Cargar recepcion";
-            this.btn_CargarRecepcion.UseVisualStyleBackColor = true;
+            this.btn_CargarRecepcion.UseVisualStyleBackColor = false;
             this.btn_CargarRecepcion.Click += new System.EventHandler(this.btn_CargarRecepcion_Click_1);
             // 
             // num_cajas
             // 
-            this.num_cajas.Location = new System.Drawing.Point(28, 254);
+            this.num_cajas.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.num_cajas.Location = new System.Drawing.Point(28, 264);
             this.num_cajas.Name = "num_cajas";
-            this.num_cajas.Size = new System.Drawing.Size(120, 20);
+            this.num_cajas.Size = new System.Drawing.Size(120, 22);
             this.num_cajas.TabIndex = 23;
             // 
             // dataGridViewRecepciones
@@ -66,90 +70,99 @@
             this.dataGridViewRecepciones.AllowUserToAddRows = false;
             this.dataGridViewRecepciones.AllowUserToDeleteRows = false;
             this.dataGridViewRecepciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewRecepciones.Location = new System.Drawing.Point(269, 84);
+            this.dataGridViewRecepciones.Location = new System.Drawing.Point(253, 79);
             this.dataGridViewRecepciones.Name = "dataGridViewRecepciones";
             this.dataGridViewRecepciones.ReadOnly = true;
-            this.dataGridViewRecepciones.Size = new System.Drawing.Size(616, 280);
+            this.dataGridViewRecepciones.Size = new System.Drawing.Size(659, 324);
             this.dataGridViewRecepciones.TabIndex = 22;
             // 
             // dtp_llegada
             // 
-            this.dtp_llegada.Location = new System.Drawing.Point(28, 313);
+            this.dtp_llegada.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.dtp_llegada.Location = new System.Drawing.Point(28, 329);
             this.dtp_llegada.Name = "dtp_llegada";
-            this.dtp_llegada.Size = new System.Drawing.Size(200, 20);
+            this.dtp_llegada.Size = new System.Drawing.Size(200, 22);
             this.dtp_llegada.TabIndex = 21;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(25, 296);
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.label5.Location = new System.Drawing.Point(25, 301);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(82, 13);
+            this.label5.Size = new System.Drawing.Size(89, 13);
             this.label5.TabIndex = 20;
             this.label5.Text = "Hora de llegada";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(25, 237);
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.label4.Location = new System.Drawing.Point(25, 239);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(92, 13);
+            this.label4.Size = new System.Drawing.Size(98, 13);
             this.label4.TabIndex = 19;
             this.label4.Text = "Cantidad de cajas";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(25, 173);
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.label3.Location = new System.Drawing.Point(25, 171);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 13);
+            this.label3.Size = new System.Drawing.Size(58, 13);
             this.label3.TabIndex = 18;
             this.label3.Text = "Empleado";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 118);
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.label2.Location = new System.Drawing.Point(25, 108);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 13);
+            this.label2.Size = new System.Drawing.Size(59, 13);
             this.label2.TabIndex = 17;
             this.label2.Text = "Nº Remito";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 62);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.label1.Location = new System.Drawing.Point(25, 40);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 13);
+            this.label1.Size = new System.Drawing.Size(62, 13);
             this.label1.TabIndex = 16;
             this.label1.Text = "Proveedor ";
             // 
             // txt_empleado
             // 
-            this.txt_empleado.Location = new System.Drawing.Point(28, 189);
+            this.txt_empleado.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.txt_empleado.Location = new System.Drawing.Point(28, 196);
             this.txt_empleado.Name = "txt_empleado";
-            this.txt_empleado.Size = new System.Drawing.Size(100, 20);
+            this.txt_empleado.Size = new System.Drawing.Size(100, 22);
             this.txt_empleado.TabIndex = 15;
             // 
             // txt_remito
             // 
+            this.txt_remito.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.txt_remito.Location = new System.Drawing.Point(28, 134);
             this.txt_remito.Name = "txt_remito";
-            this.txt_remito.Size = new System.Drawing.Size(100, 20);
+            this.txt_remito.Size = new System.Drawing.Size(100, 22);
             this.txt_remito.TabIndex = 14;
             // 
             // txt_proveedor
             // 
-            this.txt_proveedor.Location = new System.Drawing.Point(28, 78);
+            this.txt_proveedor.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.txt_proveedor.Location = new System.Drawing.Point(28, 68);
             this.txt_proveedor.Name = "txt_proveedor";
-            this.txt_proveedor.Size = new System.Drawing.Size(100, 20);
+            this.txt_proveedor.Size = new System.Drawing.Size(100, 22);
             this.txt_proveedor.TabIndex = 13;
             // 
             // FormRecepciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(897, 450);
+            this.ClientSize = new System.Drawing.Size(942, 471);
             this.Controls.Add(this.btn_CargarRecepcion);
             this.Controls.Add(this.num_cajas);
             this.Controls.Add(this.dataGridViewRecepciones);
