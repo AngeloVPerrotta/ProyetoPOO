@@ -16,16 +16,7 @@ namespace ProyetoPOO
         {
             
         }
-        private void EliminarEnPos(NodoListaProv nuevonodo, int pos) 
-        { 
-            //if (dataGridViewProv.SelectedRows.Count > 0) 
-            //{
-            //    foreach (DataGridViewRow fila in dataGridViewProv.SelectedRows) 
-            //    {
-            //        dataGridViewProv.Rows.RemoveAt(fila.Index);
-            //    }
-            //}
-        }
+
         private void AgregarUltimo(NodoListaProv nuevonodo) 
         {
             if (primero == null)

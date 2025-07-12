@@ -43,13 +43,11 @@ namespace UI
 
             try
             {
-                // Si el archivo no existe, lo creamos con el encabezado.
                 if (!File.Exists(rutaUsuariosCsv))
                 {
                     File.AppendAllText(rutaUsuariosCsv, "usuario,contraseña,rol" + Environment.NewLine);
                 }
 
-                // Revisamos si el usuario ya existe para evitar duplicados
                 var existentes = File.ReadAllLines(rutaUsuariosCsv);
                 foreach (string l in existentes)
                 {
@@ -66,12 +64,10 @@ namespace UI
                 File.AppendAllText(rutaUsuariosCsv, linea + Environment.NewLine);
                 MessageBox.Show("Usuario registrado correctamente.");
 
-                // Limpiar campos
                 txtUsuario.Clear();
                 txtContraseña.Clear();
                 txtRol.Clear();
 
-                // --- RECARGAR EL DATAGRIDVIEW DESPUÉS DE AÑADIR UN USUARIO ---
                 CargarUsuariosEnDataGridView();
             }
             catch (Exception ex)
@@ -95,50 +91,45 @@ namespace UI
 
             tablaUsuarios = new DataTable();
             tablaUsuarios.Columns.Add("Usuario");
-            tablaUsuarios.Columns.Add("Contraseña"); // Esta columna mostrará el placeholder
+            tablaUsuarios.Columns.Add("Contraseña"); 
             tablaUsuarios.Columns.Add("Rol");
 
             dataGridViewUsuarios.DataSource = tablaUsuarios;
 
             // Opcional: Ajustar el ancho de las columnas
             dataGridViewUsuarios.Columns["Usuario"].Width = 100;
-            dataGridViewUsuarios.Columns["Contraseña"].Width = 200; // Más ancho para el hash o placeholder
+            dataGridViewUsuarios.Columns["Contraseña"].Width = 200; 
             dataGridViewUsuarios.Columns["Rol"].Width = 100;
 
-            // Deshabilitar la edición directa en el DataGridView si no es deseado
             dataGridViewUsuarios.ReadOnly = true;
-            dataGridViewUsuarios.AllowUserToAddRows = false; // No permitir añadir filas directamente
+            dataGridViewUsuarios.AllowUserToAddRows = false; 
         }
 
         private void CargarUsuariosEnDataGridView()
         {
-            tablaUsuarios.Rows.Clear(); // Limpia la tabla antes de recargar
+            tablaUsuarios.Rows.Clear(); 
 
             try
             {
                 if (!File.Exists(rutaUsuariosCsv))
                 {
-                    // Si el archivo no existe, lo creamos con el encabezado.
-                    // Esto es importante para que no falle al intentar leerlo.
                     File.AppendAllText(rutaUsuariosCsv, "usuario,contraseña,rol" + Environment.NewLine);
-                    return; // No hay usuarios que cargar si se acaba de crear
+                    return; 
                 }
 
-                var lineas = File.ReadAllLines(rutaUsuariosCsv).Skip(1); // Salta la cabecera
+                var lineas = File.ReadAllLines(rutaUsuariosCsv).Skip(1); 
 
                 foreach (string linea in lineas)
                 {
-                    if (string.IsNullOrWhiteSpace(linea)) continue; // Ignora líneas vacías
+                    if (string.IsNullOrWhiteSpace(linea)) continue; 
 
-                    var partes = linea.Split(','); // Asegúrate de que el separador sea la coma
+                    var partes = linea.Split(','); 
 
                     if (partes.Length == 3)
                     {
                         string usuario = partes[0].Trim();
-                        // string contraseñaHasheada = partes[1].Trim(); // No la necesitamos directamente para mostrar
-                        string rol = partes[2].Trim();
+                         string rol = partes[2].Trim();
 
-                        // Añadimos el usuario, un placeholder para la contraseña, y el rol
                         tablaUsuarios.Rows.Add(usuario, "********", rol);
                     }
                 }
@@ -169,10 +160,10 @@ namespace UI
             InicializarDataGridView();
             CargarUsuariosEnDataGridView();
 
-            this.BackColor = Color.WhiteSmoke; // Fondo general más limpio y profesional
+            this.BackColor = Color.WhiteSmoke; 
             foreach (Control ctrl in this.Controls)
             {
-                ctrl.Font = new Font("Segoe UI", 11); // Fuente moderna y legible
+                ctrl.Font = new Font("Segoe UI", 11); 
             }
             if (this.Controls.OfType<DataGridView>().Any())
             {
@@ -187,8 +178,8 @@ namespace UI
 
             foreach (Control ctrl in this.Controls.OfType<Button>())
             {
-                ctrl.BackColor = Color.SteelBlue; // Color atractivo
-                ctrl.ForeColor = Color.White;            // Texto blanco
+                ctrl.BackColor = Color.SteelBlue; 
+                ctrl.ForeColor = Color.White;          
 
                 ctrl.Font = new Font("Segoe UI", 11, FontStyle.Bold);
             }

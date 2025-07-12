@@ -76,7 +76,6 @@ namespace UI
                     }
                 }
 
-                // Corrected line: Set the column auto-sizing mode properly
                 dataGridViewPedidos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             }
             catch (Exception ex)
@@ -144,7 +143,7 @@ namespace UI
             CargarPedidos();
 
            
-            this.BackColor = Color.WhiteSmoke; // Fondo general más limpio y profesional
+            this.BackColor = Color.WhiteSmoke; 
             if (this.Controls.OfType<DataGridView>().Any())
             {
                 var dgv = this.Controls.OfType<DataGridView>().First();

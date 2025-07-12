@@ -64,7 +64,7 @@ namespace UI
                 }
 
                 // Leemos todas las líneas del archivo directamente
-                var lineas = File.ReadAllLines(rutaCsv).Skip(1); // Salta la cabecera
+                var lineas = File.ReadAllLines(rutaCsv).Skip(1); // Salta encabezados
 
                 foreach (var linea in lineas)
                 {
@@ -122,13 +122,13 @@ namespace UI
 
         private string HashMD5(string input)
         {
-            // ... (tu código para el hash MD5) ...
+      
             using (MD5 md5 = MD5.Create())
             {
                 byte[] inputBytes = Encoding.UTF8.GetBytes(input);
                 byte[] hashBytes = md5.ComputeHash(inputBytes);
 
-                // Convertimos el array de bytes a una cadena hexadecimal
+      
                 StringBuilder sb = new StringBuilder();
                 for (int i = 0; i < hashBytes.Length; i++)
                 {

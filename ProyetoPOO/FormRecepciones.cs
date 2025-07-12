@@ -26,10 +26,10 @@ namespace ProyetoPOO
             dataGridViewRecepciones.Columns.Add("Cajas", "Cantidad de cajas");
             dataGridViewRecepciones.Columns.Add("Hora", "Hora de llegada");
 
-            this.BackColor = Color.WhiteSmoke; // Fondo general más limpio y profesional
+            this.BackColor = Color.WhiteSmoke; 
             foreach (Control ctrl in this.Controls)
             {
-                ctrl.Font = new Font("Segoe UI", 11); // Fuente moderna y legible
+                ctrl.Font = new Font("Segoe UI", 11); 
             }
             if (this.Controls.OfType<DataGridView>().Any())
             {
@@ -46,8 +46,8 @@ namespace ProyetoPOO
 
             foreach (Control ctrl in this.Controls.OfType<Button>())
             {
-                ctrl.BackColor = Color.SteelBlue; // Color atractivo
-                ctrl.ForeColor = Color.White;            // Texto blanco
+                ctrl.BackColor = Color.SteelBlue; 
+                ctrl.ForeColor = Color.White;            
 
                 ctrl.Font = new Font("Segoe UI", 11, FontStyle.Bold);
             }
@@ -59,7 +59,7 @@ namespace ProyetoPOO
                 ForeColor = Color.SteelBlue,
                 AutoSize = true,
                 TextAlign = ContentAlignment.MiddleCenter,
-                Location = new Point((this.Width - 200) / 2, 20) // Centrado horizontalmente
+                Location = new Point((this.Width - 200) / 2, 20) 
             };
 
 
@@ -86,16 +86,12 @@ namespace ProyetoPOO
                 return;
             }
 
-            // Aquí creas la línea CSV para el nuevo registro
             string nuevaLinea = $"{txt_proveedor.Text};{txt_remito.Text};{txt_empleado.Text};{num_cajas.Value};{dtp_llegada.Value:yyyy-MM-dd HH:mm:ss}";
 
-            // Agrega la nueva línea al archivo CSV local
             File.AppendAllText(rutaCsv, nuevaLinea + Environment.NewLine);
 
-            // Agrega la nueva fila al DataGridView
             dataGridViewRecepciones.Rows.Add(txt_proveedor.Text, txt_remito.Text, txt_empleado.Text, num_cajas.Value, dtp_llegada.Value.ToString("HH:mm"));
 
-            // Limpia los campos para el siguiente registro
             txt_proveedor.Text = "";
             txt_remito.Text = "";
             txt_empleado.Text = "";
@@ -106,29 +102,21 @@ namespace ProyetoPOO
         private void FormRecepciones_Load_1(object sender, EventArgs e)
         {
 
-
-
             try
             {
-                // Verifica si el archivo existe. Si no, lo crea con la cabecera.
                 if (!File.Exists(rutaCsv))
                 {
                     File.WriteAllText(rutaCsv, "Proveedor;Remito;Empleado;Cajas;HoraLlegada" + Environment.NewLine);
                 }
 
-                // Lee todas las líneas del archivo CSV local
                 var lineas = File.ReadAllLines(rutaCsv).Skip(1);
 
                 foreach (string linea in lineas)
                 {
-                    // Si el archivo tiene líneas vacías, las ignora
                     if (string.IsNullOrWhiteSpace(linea)) continue;
 
                     string[] valores = linea.Split(';');
-                    // Aquí debes asegurarte de que el método Recepcion.FromCsv use ';' como separador
-                    // O bien, adaptar este código para que use la clase Recepcion
 
-                    // Ejemplo de cómo llenar la tabla directamente:
                     if (valores.Length >= 5)
                     {
                         dataGridViewRecepciones.Rows.Add(valores[0], valores[1], valores[2], valores[3], valores[4]);
