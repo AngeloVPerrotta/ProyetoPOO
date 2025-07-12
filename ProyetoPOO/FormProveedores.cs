@@ -29,12 +29,34 @@ namespace ProyetoPOO
         public FormProveedores()
         {
             InitializeComponent();
-        }           
+        }
         private void FormProveedores_Load(object sender, EventArgs e)
         {
-            inicializartabla();  
+            inicializartabla();
             cargarDesdeCSV();
-        }               
+
+            this.BackColor = Color.WhiteSmoke;
+
+            foreach (Control ctrl in this.Controls)
+            {
+                ctrl.Font = new Font("Segoe UI", 11);
+            }
+
+            // Aplica color a los botones
+            foreach (Control ctrl in this.Controls.OfType<Button>())
+            {
+                ctrl.BackColor = Color.SteelBlue;
+                ctrl.ForeColor = Color.White;
+                ctrl.Font = new Font("Segoe UI", 11, FontStyle.Bold);
+            }
+
+            // Aplica color a los encabezados del DataGridView
+            dataGridViewProv.EnableHeadersVisualStyles = false;
+            dataGridViewProv.ColumnHeadersDefaultCellStyle.BackColor = Color.SteelBlue;
+            dataGridViewProv.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+
+            dataGridViewProv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
         private void inicializartabla() 
         {
             tablaProv = new DataTable();
@@ -44,6 +66,20 @@ namespace ProyetoPOO
             tablaProv.Columns.Add("Contacto");
             dataGridViewProv.DataSource = tablaProv;
             dataGridViewProv.Columns["ID"].Width = 35;
+
+            dataGridViewProv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; // <-- Esta línea
+
+            if (this.Controls.OfType<DataGridView>().Any())
+            {
+                var dgv = this.Controls.OfType<DataGridView>().First();
+                dgv.BackgroundColor = Color.White;
+                dgv.DefaultCellStyle.Font = new Font("Segoe UI", 10);
+                dgv.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 11, FontStyle.Bold);
+                dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.SteelBlue;
+ 
+                dgv.GridColor = Color.LightGray;
+            }
+
         }
         private void escriba(string texto) 
         {
@@ -191,6 +227,14 @@ namespace ProyetoPOO
             MessageBox.Show("Proveedor modificado correctamente.");
             limpiarCampos();
             filaselecionada = -1;
+        }
+
+        private static class NativeMethods
+        {
+            [System.Runtime.InteropServices.DllImport("gdi32.dll")]
+            public static extern IntPtr CreateRoundRectRgn(
+                int nLeftRect, int nTopRect, int nRightRect, int nBottomRect,
+                int nWidthEllipse, int nHeightEllipse);
         }
 
         private void guardarEnCSV()

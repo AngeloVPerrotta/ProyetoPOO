@@ -25,7 +25,56 @@ namespace ProyetoPOO
             dataGridViewRecepciones.Columns.Add("Empleado", "Empleado");
             dataGridViewRecepciones.Columns.Add("Cajas", "Cantidad de cajas");
             dataGridViewRecepciones.Columns.Add("Hora", "Hora de llegada");
+
+            this.BackColor = Color.WhiteSmoke; // Fondo general más limpio y profesional
+            foreach (Control ctrl in this.Controls)
+            {
+                ctrl.Font = new Font("Segoe UI", 11); // Fuente moderna y legible
+            }
+            if (this.Controls.OfType<DataGridView>().Any())
+            {
+                var dgv = this.Controls.OfType<DataGridView>().First();
+                dgv.BackgroundColor = Color.White;
+                dgv.DefaultCellStyle.Font = new Font("Segoe UI", 10);
+                dgv.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 11, FontStyle.Bold);
+                dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.SteelBlue;
+                dgv.EnableHeadersVisualStyles = false;
+                dgv.GridColor = Color.LightGray;
+            }
+
+            foreach (Control ctrl in this.Controls.OfType<Button>())
+            {
+                ctrl.BackColor = Color.SteelBlue; // Color atractivo
+                ctrl.ForeColor = Color.White;            // Texto blanco
+
+                ctrl.Font = new Font("Segoe UI", 11, FontStyle.Bold);
+            }
+
+            Label lblTitulo = new Label
+            {
+                Text = "Recepciones",
+                Font = new Font("Segoe UI", 18, FontStyle.Bold),
+                ForeColor = Color.SteelBlue,
+                AutoSize = true,
+                TextAlign = ContentAlignment.MiddleCenter,
+                Location = new Point((this.Width - 200) / 2, 20) // Centrado horizontalmente
+            };
+
+
+
+            this.Controls.Add(lblTitulo);
+
         }
+
+        private static class NativeMethods
+        {
+            [System.Runtime.InteropServices.DllImport("gdi32.dll")]
+            public static extern IntPtr CreateRoundRectRgn(
+                int nLeftRect, int nTopRect, int nRightRect, int nBottomRect,
+                int nWidthEllipse, int nHeightEllipse);
+        }
+
+
 
         private void btn_CargarRecepcion_Click_1(object sender, EventArgs e)
         {

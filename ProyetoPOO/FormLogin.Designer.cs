@@ -69,8 +69,8 @@
             // 
             // buttonIniciarSesion
             // 
-            this.buttonIniciarSesion.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.buttonIniciarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonIniciarSesion.BackColor = System.Drawing.Color.AliceBlue;
+            this.buttonIniciarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonIniciarSesion.ForeColor = System.Drawing.SystemColors.WindowText;
             this.buttonIniciarSesion.Location = new System.Drawing.Point(273, 316);
             this.buttonIniciarSesion.Name = "buttonIniciarSesion";
@@ -87,6 +87,7 @@
             this.txt_contraseña.Name = "txt_contraseña";
             this.txt_contraseña.Size = new System.Drawing.Size(100, 20);
             this.txt_contraseña.TabIndex = 3;
+            this.txt_contraseña.Text = "admin123";
             // 
             // txt_usuario
             // 
@@ -94,6 +95,7 @@
             this.txt_usuario.Name = "txt_usuario";
             this.txt_usuario.Size = new System.Drawing.Size(100, 20);
             this.txt_usuario.TabIndex = 2;
+            this.txt_usuario.Text = "admin";
             // 
             // FormLogin
             // 

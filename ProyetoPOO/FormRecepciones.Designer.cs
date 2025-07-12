@@ -63,10 +63,13 @@
             // 
             // dataGridViewRecepciones
             // 
+            this.dataGridViewRecepciones.AllowUserToAddRows = false;
+            this.dataGridViewRecepciones.AllowUserToDeleteRows = false;
             this.dataGridViewRecepciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewRecepciones.Location = new System.Drawing.Point(269, 84);
             this.dataGridViewRecepciones.Name = "dataGridViewRecepciones";
-            this.dataGridViewRecepciones.Size = new System.Drawing.Size(507, 280);
+            this.dataGridViewRecepciones.ReadOnly = true;
+            this.dataGridViewRecepciones.Size = new System.Drawing.Size(616, 280);
             this.dataGridViewRecepciones.TabIndex = 22;
             // 
             // dtp_llegada
@@ -146,7 +149,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(897, 450);
             this.Controls.Add(this.btn_CargarRecepcion);
             this.Controls.Add(this.num_cajas);
             this.Controls.Add(this.dataGridViewRecepciones);

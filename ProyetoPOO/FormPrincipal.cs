@@ -48,31 +48,34 @@ namespace UI
                 get { return Color.DodgerBlue; }
             }
 
-            public override Color MenuItemSelectedGradientEnd
-            {
-                get { return Color.DodgerBlue; }
-            }
+            
 
-            public override Color MenuStripGradientBegin
-            {
-                get { return Color.DarkSlateGray; } // Color de fondo de la barra de menú
-            }
-
-            public override Color MenuStripGradientEnd
-            {
-                get { return Color.DarkSlateGray; } // Color de fondo de la barra de menú
-            }
         }
+
+        private static class NativeMethods
+        {
+            [System.Runtime.InteropServices.DllImport("gdi32.dll")]
+            public static extern IntPtr CreateRoundRectRgn(
+                int nLeftRect, int nTopRect, int nRightRect, int nBottomRect,
+                int nWidthEllipse, int nHeightEllipse);
+        }
+
         public FormPrincipal()
         {
+            this.IsMdiContainer = true;
+            this.BackColor = Color.LightSteelBlue;
+            foreach (Control ctl in this.Controls)
+            {
+                if (ctl is MdiClient)
+                {
+                    ctl.BackColor = Color.LightSteelBlue; // Cambia el fondo del área MDI
+                }
+            }
             InitializeComponent();
             if (!string.IsNullOrEmpty(RolUsuario))
             {
                 AplicarPermisos(RolUsuario);
             }
-            this.BackColor = Color.LightBlue;
-            menuStrip1.BackColor = Color.DarkGray;
-            menuStrip1.Renderer = new MyMenuRenderer();
         }
 
         private void iniciarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
@@ -146,36 +149,36 @@ namespace UI
         {
 
         }
-        FormPedidos pedidos = new FormPedidos();
+
 
         private void pedidosToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            
-            pedidos.Show();
+            FormPedidos pedidos = new FormPedidos();
+            pedidos.ShowDialog();
         }
-        FormProveedores proveedores = new FormProveedores();
+
         private void proveedoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            
-            proveedores.Show();
+            FormProveedores proveedores = new FormProveedores();
+            proveedores.ShowDialog();
         }
 
-        FormRRHH RRHH = new FormRRHH();
+       
         private void empleadosToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            
-            RRHH.Show();
+            FormRRHH RRHH = new FormRRHH();
+            RRHH.ShowDialog();
         }
 
-        FormMensajes mensajes = new FormMensajes();
+        
         private void mensajesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            FormMensajes mensajes = new FormMensajes();
             mensajes.RolActual = this.RolUsuario;
-            mensajes.Show();
+            mensajes.ShowDialog();
         }
 
         private void seguridadToolStripMenuItem_Click(object sender, EventArgs e)
@@ -198,24 +201,24 @@ namespace UI
             label3.Text = $"Rol actual: {RolUsuario}";
 
         }
-        FormRecepciones recepciones = new FormRecepciones();
+        
 
         private void recepcionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-            recepciones.Show();
+            FormRecepciones recepciones = new FormRecepciones();
+            recepciones.ShowDialog();
         }
 
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
-        FormRRHH rrhh = new FormRRHH();
+    
 
         private void recursosHumanosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-            rrhh.Show();
+            FormRRHH rrhh = new FormRRHH();
+            rrhh.ShowDialog();
         }
     }
 }

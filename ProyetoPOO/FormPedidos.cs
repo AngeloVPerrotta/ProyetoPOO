@@ -17,6 +17,21 @@ namespace UI
         {
             InitializeComponent();
             InicializarDataGridView();
+
+            // Fondo y fuente
+            this.BackColor = Color.WhiteSmoke;
+            foreach (Control ctrl in this.Controls)
+            {
+                ctrl.Font = new Font("Segoe UI", 10);
+            }
+
+     
+
+            // Ejemplo de botón con color
+            buttonGenerarpedido.BackColor = Color.SteelBlue;
+            buttonGenerarpedido.ForeColor = Color.White;
+            buttonGenerarpedido.FlatStyle = FlatStyle.Flat;
+
         }
 
         private DataTable tablaPedidos;
@@ -35,6 +50,14 @@ namespace UI
 
             dataGridViewPedidos.DataSource = tablaPedidos;
             dataGridViewPedidos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
+
+        private static class NativeMethods
+        {
+            [System.Runtime.InteropServices.DllImport("gdi32.dll")]
+            public static extern IntPtr CreateRoundRectRgn(
+                int nLeftRect, int nTopRect, int nRightRect, int nBottomRect,
+                int nWidthEllipse, int nHeightEllipse);
         }
 
         private void CargarPedidos()
@@ -62,6 +85,9 @@ namespace UI
                         tablaPedidos.Rows.Add(valores);
                     }
                 }
+
+                // Corrected line: Set the column auto-sizing mode properly
+                dataGridViewPedidos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             }
             catch (Exception ex)
             {
@@ -126,6 +152,27 @@ namespace UI
         private void FormPedidos_Load(object sender, EventArgs e)
         {
             CargarPedidos();
+
+           
+            this.BackColor = Color.WhiteSmoke; // Fondo general más limpio y profesional
+            foreach (Control ctrl in this.Controls)
+            {
+                ctrl.Font = new Font("Segoe UI", 11); // Fuente moderna y legible
+            }
+            if (this.Controls.OfType<DataGridView>().Any())
+            {
+                var dgv = this.Controls.OfType<DataGridView>().First();
+                dgv.BackgroundColor = Color.White;
+                dgv.DefaultCellStyle.Font = new Font("Segoe UI", 10);
+                dgv.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 11, FontStyle.Bold);
+                dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.SteelBlue;
+                dgv.EnableHeadersVisualStyles = false;
+                dgv.GridColor = Color.LightGray;
+            }
+
+          
+
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -199,6 +246,11 @@ namespace UI
                     dateTimePickerPedido.Value = fechaPedido;
                 }
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

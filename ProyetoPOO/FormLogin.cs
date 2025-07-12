@@ -19,10 +19,21 @@ namespace UI
     {
         public string Usuario { get; set; }
         public string Rol { get; internal set; }
-
+        
+    protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ClassStyle |= 0x20000; // Sombra
+                return cp;
+            }
+        }
         public FormLogin()
         {
             InitializeComponent();
+           
+
         }
 
 

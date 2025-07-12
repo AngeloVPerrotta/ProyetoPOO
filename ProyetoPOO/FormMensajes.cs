@@ -15,6 +15,15 @@ namespace ProyetoPOO
     {
         public string RolActual { get; set; }
 
+
+        private static class NativeMethods
+        {
+            [System.Runtime.InteropServices.DllImport("gdi32.dll")]
+            public static extern IntPtr CreateRoundRectRgn(
+                int nLeftRect, int nTopRect, int nRightRect, int nBottomRect,
+                int nWidthEllipse, int nHeightEllipse);
+        }
+
         public FormMensajes()
         {
             InitializeComponent();
