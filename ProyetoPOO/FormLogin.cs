@@ -15,12 +15,19 @@ using System.Security.Cryptography;
 
 namespace UI
 {
-    public partial class FormLogin : Form
+    public partial class FormLogin : Form, IObserver
+
     {
         public string Usuario { get; set; }
         public string Rol { get; internal set; }
-        
-    protected override CreateParams CreateParams
+
+        public void ActualizarIdioma()
+        {
+            Idioma.CambiarIdiomaControles(this);
+
+        }
+
+        protected override CreateParams CreateParams
         {
             get
             {
@@ -106,7 +113,8 @@ namespace UI
 
         private void FormLogin_Load(object sender, EventArgs e)
         {
-
+            Idioma.CargarIdioma(Idioma.idiomaActual);
+            Idioma.Notificar(Idioma.idiomaActual);
         }
 
         public void button1_Click(object sender, EventArgs e)

@@ -13,10 +13,15 @@ using System.Runtime.InteropServices.ComTypes;
 
 namespace ProyetoPOO
 {
-    public partial class FormProveedores : Form
+    public partial class FormProveedores : Form, IObserver
     {
         private string rutacsv = "Proveedores.csv";
         private DataTable tablaProv;
+
+        public void ActualizarIdioma()
+        {
+            Idioma.CambiarIdiomaControles(this);
+        }
         private bool okay() 
         {
             bool ok = false;
@@ -34,6 +39,8 @@ namespace ProyetoPOO
         {
             inicializartabla();
             cargarDesdeCSV();
+            Idioma.Agregar(this); ;
+            Idioma.Notificar(Idioma.idiomaActual);
 
             this.BackColor = Color.WhiteSmoke;
 

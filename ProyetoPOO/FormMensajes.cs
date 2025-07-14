@@ -11,10 +11,14 @@ using System.IO;
 
 namespace ProyetoPOO
 {
-    public partial class FormMensajes : Form
+    public partial class FormMensajes : Form, IObserver
     {
         public string RolActual { get; set; }
 
+        public void ActualizarIdioma()
+        {
+            Idioma.CambiarIdiomaControles(this);
+        }
 
         private static class NativeMethods
         {
@@ -82,6 +86,10 @@ namespace ProyetoPOO
 
         public void FormMensajes_Load(object sender, EventArgs e)
         {
+
+            Idioma.Agregar(this); ;
+            Idioma.Notificar(Idioma.idiomaActual);
+
             CargarMensajesRecibidos();
 
             dgvMensajes.DefaultCellStyle.Font = new Font("Segoe UI", 10);

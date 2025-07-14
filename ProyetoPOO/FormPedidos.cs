@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyetoPOO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,8 +12,12 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class FormPedidos : Form
+    public partial class FormPedidos : Form, IObserver
     {
+        public void ActualizarIdioma()
+        {
+            Idioma.CambiarIdiomaControles(this);
+        }
         public FormPedidos()
         {
             InitializeComponent();
@@ -141,8 +146,9 @@ namespace UI
         private void FormPedidos_Load(object sender, EventArgs e)
         {
             CargarPedidos();
+            Idioma.Agregar(this); ;
+            Idioma.Notificar(Idioma.idiomaActual);
 
-           
             this.BackColor = Color.WhiteSmoke; 
             if (this.Controls.OfType<DataGridView>().Any())
             {

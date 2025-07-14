@@ -11,10 +11,14 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class FormPrincipal : Form
+    public partial class FormPrincipal : Form, IObserver
     {
         private string rolUsuario;
 
+        public void ActualizarIdioma()
+        {
+            Idioma.CambiarIdiomaControles(this);
+        }
         public string RolUsuario
         {
             get => rolUsuario;
@@ -197,7 +201,10 @@ namespace UI
 
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
-           
+
+            Idioma.Agregar(this); ;
+            Idioma.Notificar(Idioma.idiomaActual);
+
             label3.Text = $"Rol actual: {RolUsuario}";
 
         }
@@ -224,6 +231,12 @@ namespace UI
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void idiomaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormIdioma idioma = new FormIdioma();
+            idioma.ShowDialog();
         }
     }
 }

@@ -9,15 +9,22 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Security.Cryptography; // Necesario para MD5
+using ProyetoPOO;
 
 namespace UI
 {
-    public partial class FormRRHH : Form
+    public partial class FormRRHH : Form, IObserver
     {
         public FormRRHH()
         {
-            InitializeComponent();
+         InitializeComponent();
         }
+
+        public void ActualizarIdioma()
+        {
+            Idioma.CambiarIdiomaControles(this);
+        }
+
         private DataTable tablaUsuarios;
         private string rutaUsuariosCsv = Path.Combine(Application.StartupPath, "usuario_encriptado.csv");
         
@@ -159,6 +166,9 @@ namespace UI
         {
             InicializarDataGridView();
             CargarUsuariosEnDataGridView();
+
+            Idioma.Agregar(this); ;
+            Idioma.Notificar(Idioma.idiomaActual);
 
             this.BackColor = Color.WhiteSmoke; 
             foreach (Control ctrl in this.Controls)

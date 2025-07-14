@@ -30,7 +30,6 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.buttonIniciarSesion = new System.Windows.Forms.Button();
             this.txt_contraseña = new System.Windows.Forms.TextBox();
             this.txt_usuario = new System.Windows.Forms.TextBox();
@@ -57,15 +56,6 @@
             this.label2.Size = new System.Drawing.Size(130, 30);
             this.label2.TabIndex = 1;
             this.label2.Text = "Contraseña";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(320, 150);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(0, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // buttonIniciarSesion
             // 
@@ -106,7 +96,6 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.buttonIniciarSesion);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.txt_usuario);
             this.Controls.Add(this.txt_contraseña);
             this.Controls.Add(this.label2);
@@ -125,6 +114,5 @@
         private System.Windows.Forms.Button buttonIniciarSesion;
         private System.Windows.Forms.TextBox txt_contraseña;
         private System.Windows.Forms.TextBox txt_usuario;
-        private System.Windows.Forms.Label label3;
     }
 }

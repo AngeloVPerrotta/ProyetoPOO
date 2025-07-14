@@ -11,10 +11,15 @@ using System.IO;
 
 namespace ProyetoPOO
 {
-    public partial class FormRecepciones : Form
+    public partial class FormRecepciones : Form, IObserver
     {
 
         private string rutaCsv = Path.Combine(Application.StartupPath, "recepciones.csv");
+
+        public void ActualizarIdioma()
+        {
+            Idioma.CambiarIdiomaControles(this);
+        }
 
         public FormRecepciones()
         {
@@ -101,6 +106,9 @@ namespace ProyetoPOO
 
         private void FormRecepciones_Load_1(object sender, EventArgs e)
         {
+
+            Idioma.Agregar(this); ;
+            Idioma.Notificar(Idioma.idiomaActual);
 
             try
             {

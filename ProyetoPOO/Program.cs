@@ -22,16 +22,28 @@ namespace ProyetoPOO
 
             if (login.ShowDialog() == DialogResult.OK)
             {
+                Idioma.idiomaActual = ("Español");
+                Idioma.CargarIdioma(Idioma.idiomaActual);
+                Idioma.Notificar(Idioma.idiomaActual);
+
                 FormPrincipal principal = new FormPrincipal();
+
+
+
                 principal.RolUsuario = login.Rol;
                 principal.AplicarPermisos(login.Rol);
                 Application.Run(principal);
+
             }
             else
             {
                 // Si no se loguea, cierra la app
                 Application.Exit();
             }
+
+
+
+
         }
     }
 }
