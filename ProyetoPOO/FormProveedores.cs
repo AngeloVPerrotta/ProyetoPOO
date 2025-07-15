@@ -129,14 +129,19 @@ namespace ProyetoPOO
         {
             if (okay())
             {
-                string[] vectorlinea = new string[4];
-                vectorlinea[1] = textBoxProv.Text;
-                vectorlinea[2] = textBoxRubro.Text;
-                vectorlinea[3] = textBoxContacto.Text;
-                tablaProv.Rows.Add(vectorlinea);
+                int nuevoID = ObtenerSiguienteID();
+
+                tablaProv.Rows.Add(
+                    nuevoID.ToString(),
+                    textBoxProv.Text,
+                    textBoxRubro.Text,
+                    textBoxContacto.Text
+                );
+
+                guardarEnCSV();
                 limpiarCampos();
             }
-            else 
+            else
             {
                 MessageBox.Show(
                     Idioma.ObtenerTexto("FormProveedores.MessageBox.CompletarCampos"),
@@ -165,32 +170,12 @@ namespace ProyetoPOO
 
         private int filaselecionada = -1;
         private void dataGridViewProv_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                filaselecionada = e.RowIndex;
-
-                DataGridViewRow fila = dataGridViewProv.Rows[e.RowIndex];
-
-                textBoxProv.Text = fila.Cells["Nombre"].Value.ToString();
-                textBoxRubro.Text = fila.Cells["Rubro"].Value.ToString();
-                textBoxContacto.Text = fila.Cells["Contacto"].Value.ToString();
-            }
+        {           
         }
 
         private void buttonElimProv_Click(object sender, EventArgs e)
         {
-            var confirm = MessageBox.Show(
-                Idioma.ObtenerTexto("FormProveedores.MessageBox.ConfirmarEliminacion"),
-                Idioma.ObtenerTexto("FormProveedores.MessageBox.ConfirmarEliminacion.Titulo"),
-                MessageBoxButtons.YesNo
-            );
-            if (confirm == DialogResult.Yes)
-            {
-                dataGridViewProv.Rows.RemoveAt(filaselecionada);
-                filaselecionada = -1;
-            }
-            else 
+            if (filaselecionada == -1)
             {
                 MessageBox.Show(
                     Idioma.ObtenerTexto("FormProveedores.MessageBox.SeleccionarFilaEliminar"),
@@ -198,6 +183,21 @@ namespace ProyetoPOO
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning
                 );
+                return;
+            }
+
+            var confirm = MessageBox.Show(
+                Idioma.ObtenerTexto("FormProveedores.MessageBox.ConfirmarEliminacion"),
+                Idioma.ObtenerTexto("FormProveedores.MessageBox.ConfirmarEliminacion.Titulo"),
+                MessageBoxButtons.YesNo
+            );
+
+            if (confirm == DialogResult.Yes)
+            {
+                tablaProv.Rows[filaselecionada].Delete();
+                guardarEnCSV();
+                filaselecionada = -1;
+                limpiarCampos();
             }
         }
 
@@ -280,6 +280,32 @@ namespace ProyetoPOO
                     MessageBoxIcon.Error
                 );
             }
+        }
+        private int ObtenerSiguienteID()
+        {
+            if (tablaProv.Rows.Count == 0)
+                return 1;
+
+            int maxId = tablaProv.AsEnumerable()
+                .Where(r => !string.IsNullOrEmpty(r["ID"].ToString()))
+                .Max(r => int.Parse(r["ID"].ToString()));
+
+            return maxId + 1;
+        }
+
+        private void dataGridViewProv_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                filaselecionada = e.RowIndex;
+
+                DataGridViewRow fila = dataGridViewProv.Rows[e.RowIndex];
+
+                textBoxProv.Text = fila.Cells["Nombre"].Value.ToString();
+                textBoxRubro.Text = fila.Cells["Rubro"].Value.ToString();
+                textBoxContacto.Text = fila.Cells["Contacto"].Value.ToString();
+            }
+
         }
     }
 }

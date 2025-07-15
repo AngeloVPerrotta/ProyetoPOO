@@ -267,6 +267,16 @@ namespace UI
         //f
         private void dataGridViewPedidos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridViewPedidos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
             if (e.RowIndex >= 0)
             {
                 filaSeleccionada = e.RowIndex;
@@ -286,11 +296,6 @@ namespace UI
                     dateTimePickerPedido.Value = fechaPedido;
                 }
             }
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -315,10 +315,13 @@
             // 
             // dataGridViewVentas
             // 
+            this.dataGridViewVentas.AllowUserToAddRows = false;
+            this.dataGridViewVentas.AllowUserToDeleteRows = false;
             this.dataGridViewVentas.BackgroundColor = System.Drawing.Color.LightSteelBlue;
             this.dataGridViewVentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewVentas.Location = new System.Drawing.Point(16, 215);
             this.dataGridViewVentas.Name = "dataGridViewVentas";
+            this.dataGridViewVentas.ReadOnly = true;
             this.dataGridViewVentas.Size = new System.Drawing.Size(591, 204);
             this.dataGridViewVentas.TabIndex = 27;
             // 

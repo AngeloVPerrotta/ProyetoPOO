@@ -112,6 +112,7 @@
             this.dgvMensajes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMensajes.Location = new System.Drawing.Point(29, 230);
             this.dgvMensajes.Name = "dgvMensajes";
+            this.dgvMensajes.ReadOnly = true;
             this.dgvMensajes.Size = new System.Drawing.Size(513, 244);
             this.dgvMensajes.TabIndex = 1;
             // 

@@ -18,13 +18,14 @@ namespace ProyetoPOO
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            Idioma.idiomaActual = ("Español");
+            Idioma.CargarIdioma(Idioma.idiomaActual);
+
+
             FormLogin login = new FormLogin();
 
             if (login.ShowDialog() == DialogResult.OK)
             {
-                Idioma.idiomaActual = ("Español");
-                Idioma.CargarIdioma(Idioma.idiomaActual);
-                Idioma.Notificar(Idioma.idiomaActual);
 
                 FormPrincipal principal = new FormPrincipal();
 
