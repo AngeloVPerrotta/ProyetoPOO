@@ -108,6 +108,7 @@
     <Compile Include="Recepcion.cs" />
     <Compile Include="RRHHDinamico.cs" />
     <Compile Include="Seguridad.cs" />
+    <Compile Include="StockManager.cs" />
     <EmbeddedResource Include="FormIdioma.resx">
       <DependentUpon>FormIdioma.cs</DependentUpon>
     </EmbeddedResource>

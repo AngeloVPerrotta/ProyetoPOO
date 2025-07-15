@@ -37,7 +37,7 @@ namespace UI
         {
             tablaPedidos = new DataTable();
             tablaPedidos.Columns.Add("Proveedor");
-            tablaPedidos.Columns.Add("Cantidad");
+            tablaPedidos.Columns.Add("CantidadCajas");
             tablaPedidos.Columns.Add("CodProducto");
             tablaPedidos.Columns.Add("FechaEntrega");
             tablaPedidos.Columns.Add("FechaPedido");
@@ -50,7 +50,7 @@ namespace UI
         private static class NativeMethods
         {
             [System.Runtime.InteropServices.DllImport("gdi32.dll")]
-            public static extern IntPtr CreateRoundRectRgn(
+            public static extern IntPtr CreateRoundRectRgn(             
                 int nLeftRect, int nTopRect, int nRightRect, int nBottomRect,
                 int nWidthEllipse, int nHeightEllipse);
         }
@@ -85,7 +85,13 @@ namespace UI
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al cargar el archivo de pedidos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(
+    string.Format(Idioma.ObtenerTexto("FormPedidos.MessageBox.ErrorCargarPedidos"), ex.Message),
+    Idioma.ObtenerTexto("FormPedidos.MessageBox.ErrorCargarPedidosTitulo"),
+    MessageBoxButtons.OK,
+    MessageBoxIcon.Error
+);
+
             }
         }
 
@@ -110,7 +116,13 @@ namespace UI
                 string.IsNullOrWhiteSpace(txt_codproducto.Text) ||
                 string.IsNullOrWhiteSpace(txt_costo.Text))
             {
-                MessageBox.Show("Por favor, completá todos los campos.");
+                MessageBox.Show(
+    Idioma.ObtenerTexto("FormPedidos.MessageBox.CamposIncompletos"),
+    Idioma.ObtenerTexto("FormPedidos.MessageBox.CamposIncompletosTitulo"),
+    MessageBoxButtons.OK,
+    MessageBoxIcon.Warning
+);
+
                 return;
             }
 
@@ -124,7 +136,12 @@ namespace UI
             );
 
             GuardarPedidosEnCSV();
-            MessageBox.Show("Pedido guardado correctamente.");
+            MessageBox.Show(
+    Idioma.ObtenerTexto("FormPedidos.MessageBox.PedidoGuardado"),
+    Idioma.ObtenerTexto("FormPedidos.MessageBox.PedidoGuardadoTitulo"),
+    MessageBoxButtons.OK,
+    MessageBoxIcon.Information
+);
             LimpiarCampos();
         }
 
@@ -169,7 +186,13 @@ namespace UI
         {
             if (filaSeleccionada == -1)
             {
-                MessageBox.Show("Selecciona una fila para modificar.");
+                MessageBox.Show(
+    Idioma.ObtenerTexto("FormPedidos.MessageBox.SeleccionaFilaModificar"),
+    Idioma.ObtenerTexto("FormPedidos.MessageBox.SeleccionaFilaModificarTitulo"),
+    MessageBoxButtons.OK,
+    MessageBoxIcon.Warning
+);
+
                 return;
             }
 
@@ -178,20 +201,31 @@ namespace UI
                 string.IsNullOrWhiteSpace(txt_codproducto.Text) ||
                 string.IsNullOrWhiteSpace(txt_costo.Text))
             {
-                MessageBox.Show("Completa todos los campos para modificar.");
+                MessageBox.Show(
+    Idioma.ObtenerTexto("FormPedidos.MessageBox.CamposModificar"),
+    Idioma.ObtenerTexto("FormPedidos.MessageBox.CamposModificarTitulo"),
+    MessageBoxButtons.OK,
+    MessageBoxIcon.Warning
+);
+
                 return;
             }
 
             DataRow fila = tablaPedidos.Rows[filaSeleccionada];
             fila["Proveedor"] = txt_proveedor.Text;
-            fila["Cantidad"] = txt_cantidad.Text;
+            fila["cantidadCajas"] = txt_cantidad.Text;
             fila["CodProducto"] = txt_codproducto.Text;
             fila["FechaEntrega"] = dateTimePickerEntrega.Value.ToShortDateString();
             fila["FechaPedido"] = dateTimePickerPedido.Value.ToShortDateString();
             fila["Costo"] = txt_costo.Text;
 
             GuardarPedidosEnCSV();
-            MessageBox.Show("Pedido modificado correctamente.");
+            MessageBox.Show(
+    Idioma.ObtenerTexto("FormPedidos.MessageBox.PedidoModificado"),
+    Idioma.ObtenerTexto("FormPedidos.MessageBox.PedidoModificadoTitulo"),
+    MessageBoxButtons.OK,
+    MessageBoxIcon.Information
+);
             LimpiarCampos();
             filaSeleccionada = -1;
         }
@@ -200,16 +234,32 @@ namespace UI
         {
             if (filaSeleccionada == -1)
             {
-                MessageBox.Show("Selecciona una fila para eliminar.");
+                MessageBox.Show(
+    Idioma.ObtenerTexto("FormPedidos.MessageBox.SeleccionaFilaEliminar"),
+    Idioma.ObtenerTexto("FormPedidos.MessageBox.SeleccionaFilaEliminarTitulo"),
+    MessageBoxButtons.OK,
+    MessageBoxIcon.Warning
+);
+
                 return;
             }
 
-            var confirm = MessageBox.Show("¿Estás seguro de que quieres eliminar este pedido?", "Confirmar eliminación", MessageBoxButtons.YesNo);
+            var confirm = MessageBox.Show(
+    Idioma.ObtenerTexto("FormPedidos.MessageBox.ConfirmarEliminacion"),
+    Idioma.ObtenerTexto("FormPedidos.MessageBox.ConfirmarEliminacionTitulo"),
+    MessageBoxButtons.YesNo
+);
+
             if (confirm == DialogResult.Yes)
             {
                 tablaPedidos.Rows.RemoveAt(filaSeleccionada);
                 GuardarPedidosEnCSV();
-                MessageBox.Show("Pedido eliminado correctamente.");
+                MessageBox.Show(
+    Idioma.ObtenerTexto("FormPedidos.MessageBox.PedidoEliminado"),
+    Idioma.ObtenerTexto("FormPedidos.MessageBox.PedidoEliminadoTitulo"),
+    MessageBoxButtons.OK,
+    MessageBoxIcon.Information
+);
                 LimpiarCampos();
                 filaSeleccionada = -1;
             }
@@ -223,7 +273,7 @@ namespace UI
                 DataGridViewRow fila = dataGridViewPedidos.Rows[filaSeleccionada];
 
                 txt_proveedor.Text = fila.Cells["Proveedor"].Value.ToString();
-                txt_cantidad.Text = fila.Cells["Cantidad"].Value.ToString();
+                txt_cantidad.Text = fila.Cells["cantidadCajas"].Value.ToString();
                 txt_codproducto.Text = fila.Cells["CodProducto"].Value.ToString();
                 txt_costo.Text = fila.Cells["Costo"].Value.ToString();
 

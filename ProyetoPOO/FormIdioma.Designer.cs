@@ -38,7 +38,7 @@
             this.comboBox1.Items.AddRange(new object[] {
             "Español",
             "English"});
-            this.comboBox1.Location = new System.Drawing.Point(24, 60);
+            this.comboBox1.Location = new System.Drawing.Point(85, 75);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 0;
@@ -47,7 +47,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(47, 20);
+            this.label1.Location = new System.Drawing.Point(108, 35);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(78, 13);
             this.label1.TabIndex = 2;
@@ -57,7 +57,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(183, 129);
+            this.ClientSize = new System.Drawing.Size(285, 129);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox1);
             this.Name = "FormIdioma";

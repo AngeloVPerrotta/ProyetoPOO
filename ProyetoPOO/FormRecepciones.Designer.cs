@@ -40,6 +40,7 @@
             this.txt_empleado = new System.Windows.Forms.TextBox();
             this.txt_remito = new System.Windows.Forms.TextBox();
             this.txt_proveedor = new System.Windows.Forms.TextBox();
+            this.lblTitulo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.num_cajas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRecepciones)).BeginInit();
             this.SuspendLayout();
@@ -158,11 +159,23 @@
             this.txt_proveedor.Size = new System.Drawing.Size(100, 22);
             this.txt_proveedor.TabIndex = 13;
             // 
+            // lblTitulo
+            // 
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Segoe UI Black", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.ForeColor = System.Drawing.Color.SteelBlue;
+            this.lblTitulo.Location = new System.Drawing.Point(323, 23);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(25, 37);
+            this.lblTitulo.TabIndex = 25;
+            this.lblTitulo.Text = " ";
+            // 
             // FormRecepciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(942, 471);
+            this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.btn_CargarRecepcion);
             this.Controls.Add(this.num_cajas);
             this.Controls.Add(this.dataGridViewRecepciones);
@@ -199,5 +212,6 @@
         private System.Windows.Forms.TextBox txt_empleado;
         private System.Windows.Forms.TextBox txt_remito;
         private System.Windows.Forms.TextBox txt_proveedor;
+        private System.Windows.Forms.Label lblTitulo;
     }
 }

@@ -85,7 +85,12 @@ namespace ProyetoPOO
             {
                 if (!File.Exists(rutaCompleta))
                 {
-                    MessageBox.Show("El archivo 'Proveedores.csv' no se encontró.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(
+                        Idioma.ObtenerTexto("FormProveedores.MessageBox.NoArchivoCSV"),
+                        Idioma.ObtenerTexto("FormProveedores.MessageBox.NoArchivoCSV.Titulo"),
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                    );
                     return;
                 }
 
@@ -111,7 +116,12 @@ namespace ProyetoPOO
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al cargar el archivo CSV: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(
+                    string.Format(Idioma.ObtenerTexto("FormProveedores.MessageBox.ErrorCargarCSV"), ex.Message),
+                    Idioma.ObtenerTexto("FormProveedores.MessageBox.ErrorCargarCSV.Titulo"),
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
             }
         }
 
@@ -128,7 +138,12 @@ namespace ProyetoPOO
             }
             else 
             {
-                MessageBox.Show("Complete todos los campos");
+                MessageBox.Show(
+                    Idioma.ObtenerTexto("FormProveedores.MessageBox.CompletarCampos"),
+                    Idioma.ObtenerTexto("FormProveedores.MessageBox.CompletarCampos.Titulo"),
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
             }
         }
         private void limpiarCampos()
@@ -165,7 +180,11 @@ namespace ProyetoPOO
 
         private void buttonElimProv_Click(object sender, EventArgs e)
         {
-            var confirm = MessageBox.Show("¿Deseas eliminar esta fila?", "Confirmar eliminación", MessageBoxButtons.YesNo);
+            var confirm = MessageBox.Show(
+                Idioma.ObtenerTexto("FormProveedores.MessageBox.ConfirmarEliminacion"),
+                Idioma.ObtenerTexto("FormProveedores.MessageBox.ConfirmarEliminacion.Titulo"),
+                MessageBoxButtons.YesNo
+            );
             if (confirm == DialogResult.Yes)
             {
                 dataGridViewProv.Rows.RemoveAt(filaselecionada);
@@ -173,7 +192,12 @@ namespace ProyetoPOO
             }
             else 
             {
-                MessageBox.Show("Selecione fila a eliminar");
+                MessageBox.Show(
+                    Idioma.ObtenerTexto("FormProveedores.MessageBox.SeleccionarFilaEliminar"),
+                    Idioma.ObtenerTexto("FormProveedores.MessageBox.SeleccionarFilaEliminar.Titulo"),
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
             }
         }
 
@@ -181,13 +205,23 @@ namespace ProyetoPOO
         {
             if (filaselecionada == -1)
             {
-                MessageBox.Show("Seleccione una fila para modificar.");
+                MessageBox.Show(
+                    Idioma.ObtenerTexto("FormProveedores.MessageBox.SeleccionarFilaModificar"),
+                    Idioma.ObtenerTexto("FormProveedores.MessageBox.SeleccionarFilaModificar.Titulo"),
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
                 return;
             }
 
             if (!okay())
             {
-                MessageBox.Show("Complete todos los campos para modificar el proveedor.");
+                MessageBox.Show(
+                    Idioma.ObtenerTexto("FormProveedores.MessageBox.CompletarCamposModificar"),
+                    Idioma.ObtenerTexto("FormProveedores.MessageBox.CompletarCamposModificar.Titulo"),
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
                 return;
             }
 
@@ -197,7 +231,12 @@ namespace ProyetoPOO
 
             guardarEnCSV();
 
-            MessageBox.Show("Proveedor modificado correctamente.");
+            MessageBox.Show(
+                Idioma.ObtenerTexto("FormProveedores.MessageBox.ProveedorModificado"),
+                Idioma.ObtenerTexto("FormProveedores.MessageBox.ProveedorModificado.Titulo"),
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information
+            );
             limpiarCampos();
             filaselecionada = -1;
         }
@@ -234,7 +273,12 @@ namespace ProyetoPOO
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al guardar en el archivo CSV: " + ex.Message);
+                MessageBox.Show(
+                    string.Format(Idioma.ObtenerTexto("FormProveedores.MessageBox.ErrorGuardarCSV"), ex.Message),
+                    Idioma.ObtenerTexto("FormProveedores.MessageBox.ErrorGuardarCSV.Titulo"),
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
             }
         }
     }

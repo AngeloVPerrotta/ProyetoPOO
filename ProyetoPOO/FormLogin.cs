@@ -55,7 +55,11 @@ namespace UI
             // Verificación básica
             if (string.IsNullOrEmpty(user) || string.IsNullOrEmpty(pass))
             {
-                MessageBox.Show("Ingresá tu usuario y contraseña.");
+                MessageBox.Show(
+            Idioma.ObtenerTexto("FormLogin.MessageBox.IngresarUsuarioContraseña"),
+            Idioma.ObtenerTexto("FormLogin.MessageBox.IngresarUsuarioContraseña.Titulo"),
+            MessageBoxButtons.OK,
+            MessageBoxIcon.Warning);
                 return;
             }
 
@@ -66,7 +70,11 @@ namespace UI
                 // Verificamos si el archivo existe antes de intentar leerlo
                 if (!File.Exists(rutaCsv))
                 {
-                    MessageBox.Show("No se encontró el archivo de usuarios en la carpeta del programa.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(
+                 Idioma.ObtenerTexto("FormLogin.MessageBox.NoArchivoUsuarios"),
+                 Idioma.ObtenerTexto("FormLogin.MessageBox.NoArchivoUsuarios.Titulo"),
+                 MessageBoxButtons.OK,
+                 MessageBoxIcon.Error);
                     return;
                 }
 
@@ -96,11 +104,19 @@ namespace UI
                 }
 
                 // Si el bucle termina sin encontrar una coincidencia
-                MessageBox.Show("Usuario o contraseña incorrectos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(
+            Idioma.ObtenerTexto("FormLogin.MessageBox.UsuarioContraseñaIncorrectos"),
+            Idioma.ObtenerTexto("FormLogin.MessageBox.UsuarioContraseñaIncorrectos.Titulo"),
+            MessageBoxButtons.OK,
+            MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ocurrió un error inesperado al leer el archivo: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(
+            string.Format(Idioma.ObtenerTexto("FormLogin.MessageBox.ErrorLeerArchivoUsuarios"), ex.Message),
+            Idioma.ObtenerTexto("FormLogin.MessageBox.ErrorLeerArchivoUsuarios.Titulo"),
+            MessageBoxButtons.OK,
+            MessageBoxIcon.Error);
             }
         }
 

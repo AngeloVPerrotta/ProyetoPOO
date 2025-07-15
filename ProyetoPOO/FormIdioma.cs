@@ -47,7 +47,11 @@ namespace ProyetoPOO
             }
             else
             {
-                MessageBox.Show("Seleccione un idioma.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(
+            Idioma.ObtenerTexto("FormIdioma.MessageBox.SeleccionarIdioma"),
+            Idioma.ObtenerTexto("FormIdioma.MessageBox.SeleccionarIdioma.Titulo"),
+            MessageBoxButtons.OK,
+            MessageBoxIcon.Information);
             }
         }
     }

@@ -1,4 +1,4 @@
-Proveedor;Cantidad;CodProducto;FechaEntrega;FechaPedido;Costo
+Proveedor;cantidadCajas;CodProducto;FechaEntrega;FechaPedido;Costo
 Proveedor A;50;ELC-001;15/07/2025;10/07/2025;1200.50
 Distribuidora Norte;200;ALI-005;18/07/2025;10/07/2025;350.00
 Alimentos SA;10;LAC-002;20/07/2025;11/07/2025;85.75

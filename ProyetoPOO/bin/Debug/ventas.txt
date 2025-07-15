@@ -1,0 +1,6 @@
+Juan Pérez;Caja de tornillos;10;1500;2024-06-10 15:30
+María López;Caja de clavos;5;800;2024-06-10 16:10
+Ferretería El Martillo;Caja de tuercas;20;3200;2024-06-11 09:45
+Carlos Gómez;Caja de bulones;7;1100;2024-06-11 11:20
+Lucas;Caja de algodon;3;100;2025-07-15 13:09
+Walter;Caja de herramientas;10;19;2025-07-15 13:12

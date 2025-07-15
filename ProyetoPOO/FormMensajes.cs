@@ -135,7 +135,12 @@ namespace ProyetoPOO
             }
             else
             {
-                MessageBox.Show("No se encontró el archivo de usuarios.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(
+                    Idioma.ObtenerTexto("FormMensajes.MessageBox.NoArchivoUsuarios"),
+                    Idioma.ObtenerTexto("FormMensajes.MessageBox.NoArchivoUsuariosTitulo"),
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
             }
         }
         public void VerMensajes()
@@ -144,7 +149,12 @@ namespace ProyetoPOO
 
             if (!File.Exists(rutaMensajes))
             {
-                MessageBox.Show("No hay mensajes registrados.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(
+                    Idioma.ObtenerTexto("FormMensajes.MessageBox.NoHayMensajes"),
+                    Idioma.ObtenerTexto("FormMensajes.MessageBox.NoHayMensajesTitulo"),
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
                 return;
             }
 
@@ -156,12 +166,22 @@ namespace ProyetoPOO
 
             if (mensajes.Count == 0)
             {
-                MessageBox.Show("No hay mensajes nuevos para su rol.", "Mensajes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(
+                    Idioma.ObtenerTexto("FormMensajes.MessageBox.NoMensajesNuevos"),
+                    Idioma.ObtenerTexto("FormMensajes.MessageBox.NoMensajesNuevosTitulo"),
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
             }
             else
             {
                 string texto = string.Join("\n\n------------------------\n\n", mensajes);
-                MessageBox.Show(texto, "Mensajes recibidos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(
+                    texto,
+                    Idioma.ObtenerTexto("FormMensajes.MessageBox.MensajesRecibidosTitulo"),
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
             }
         }
 
@@ -172,13 +192,23 @@ namespace ProyetoPOO
 
             if (string.IsNullOrEmpty(rolDestino) || string.IsNullOrEmpty(contenido))
             {
-                MessageBox.Show("Debe completar todos los campos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(
+                    Idioma.ObtenerTexto("FormMensajes.MessageBox.CamposIncompletos"),
+                    Idioma.ObtenerTexto("FormMensajes.MessageBox.CamposIncompletosTitulo"),
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
                 return;
             }
 
             if (rolDestino == RolActual)
             {
-                MessageBox.Show("No puede enviarse un mensaje a su propio rol.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(
+                    Idioma.ObtenerTexto("FormMensajes.MessageBox.MensajePropioRol"),
+                    Idioma.ObtenerTexto("FormMensajes.MessageBox.MensajePropioRolTitulo"),
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
                 return;
             }
 
@@ -189,12 +219,22 @@ namespace ProyetoPOO
             try
             {
                 File.AppendAllText(rutaMensajes, linea + Environment.NewLine);
-                MessageBox.Show("Mensaje enviado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(
+                    Idioma.ObtenerTexto("FormMensajes.MessageBox.MensajeEnviado"),
+                    Idioma.ObtenerTexto("FormMensajes.MessageBox.MensajeEnviadoTitulo"),
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
                 txtMensaje.Clear();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al guardar el mensaje: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(
+                    string.Format(Idioma.ObtenerTexto("FormMensajes.MessageBox.ErrorGuardarMensaje"), ex.Message),
+                    Idioma.ObtenerTexto("FormMensajes.MessageBox.ErrorGuardarMensajeTitulo"),
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
             }
         }
     }

@@ -57,19 +57,6 @@ namespace ProyetoPOO
                 ctrl.Font = new Font("Segoe UI", 11, FontStyle.Bold);
             }
 
-            Label lblTitulo = new Label
-            {
-                Text = "Recepciones",
-                Font = new Font("Segoe UI", 14, FontStyle.Bold),
-                ForeColor = Color.SteelBlue,
-                AutoSize = true,
-                TextAlign = ContentAlignment.MiddleCenter,
-                Location = new Point((this.Width - 200) / 2, 20) 
-            };
-
-
-
-            this.Controls.Add(lblTitulo);
 
         }
 
@@ -85,6 +72,9 @@ namespace ProyetoPOO
 
         private void btn_CargarRecepcion_Click_1(object sender, EventArgs e)
         {
+            int cajasRecibidas = (int)num_cajas.Value;
+            StockManager.AgregarCajas(cajasRecibidas);
+
             if (txt_proveedor.Text == "" || txt_remito.Text == "" || txt_empleado.Text == "")
             {
                 MessageBox.Show("Completá todos los campos.");

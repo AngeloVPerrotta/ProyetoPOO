@@ -42,7 +42,11 @@ namespace UI
 
             if (string.IsNullOrEmpty(usuario) || string.IsNullOrEmpty(contraseña) || string.IsNullOrEmpty(rol))
             {
-                MessageBox.Show("Todos los campos son obligatorios.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                MessageBox.Show(
+            Idioma.ObtenerTexto("FormRRHH.MessageBox.CamposObligatorios"),
+            Idioma.ObtenerTexto("FormRRHH.MessageBox.CamposObligatorios.Titulo"),
+            MessageBoxButtons.OK,
+            MessageBoxIcon.Warning);
                 return;
             }
 
@@ -61,7 +65,11 @@ namespace UI
                     var partes = l.Split(',');
                     if (partes.Length > 0 && partes[0].Trim().Equals(usuario, StringComparison.OrdinalIgnoreCase))
                     {
-                        MessageBox.Show("El usuario ya existe.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                        MessageBox.Show(
+                    Idioma.ObtenerTexto("FormRRHH.MessageBox.UsuarioExiste"),
+                    Idioma.ObtenerTexto("FormRRHH.MessageBox.UsuarioExiste.Titulo"),
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
                         return;
                     }
                 }
@@ -69,7 +77,11 @@ namespace UI
                 string linea = $"{usuario},{contraseñaHasheada},{rol}";
 
                 File.AppendAllText(rutaUsuariosCsv, linea + Environment.NewLine);
-                MessageBox.Show("Usuario registrado correctamente.");
+                MessageBox.Show(
+            Idioma.ObtenerTexto("FormRRHH.MessageBox.UsuarioRegistrado"),
+            Idioma.ObtenerTexto("FormRRHH.MessageBox.UsuarioRegistrado.Titulo"),
+            MessageBoxButtons.OK,
+            MessageBoxIcon.Information);
 
                 txtUsuario.Clear();
                 txtContraseña.Clear();
@@ -79,7 +91,11 @@ namespace UI
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al guardar usuario: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(
+            string.Format(Idioma.ObtenerTexto("FormRRHH.MessageBox.ErrorGuardarUsuario"), ex.Message),
+            Idioma.ObtenerTexto("FormRRHH.MessageBox.ErrorGuardarUsuario.Titulo"),
+            MessageBoxButtons.OK,
+            MessageBoxIcon.Error);
             }
         }
 
@@ -143,7 +159,11 @@ namespace UI
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al cargar usuarios en DataGridView: {ex.Message}", "Error de Carga", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(
+           string.Format(Idioma.ObtenerTexto("FormRRHH.MessageBox.ErrorCargarUsuarios"), ex.Message),
+           Idioma.ObtenerTexto("FormRRHH.MessageBox.ErrorCargarUsuarios.Titulo"),
+           MessageBoxButtons.OK,
+           MessageBoxIcon.Error);
             }
         }
 
